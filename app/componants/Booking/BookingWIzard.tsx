@@ -76,8 +76,8 @@ const BookingWizard = () => {
       <h2 className="text-3xl font-bold text-center mb-12">
       Book your service
         </h2>
-    <div className="flex justify-center gap-10 min-h-screen">
-      <div className="bg-white rounded-2xl border  max-h-fit border-gray-400 shadow-lg min-w-xs">
+    <div className="flex flex-col md:flex-row justify-center gap-10 min-h-screen">
+      <div className="bg-white rounded-2xl border  max-h-fit border-gray-300 shadow-lg min-w-xs">
         <div className="space-y-4 p-4">
           {steps.map((s) => {
             const isActive = step === s.id;

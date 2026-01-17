@@ -13,10 +13,6 @@ type Props = {
 
 type FormErrors = Partial<Record<keyof BasicDetailsType, string>>;
 
-const SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || ""
-const TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || ""
-const PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || ""
-// Booking Form
 const BasicDetails = ({ formData, setFormData, nextStep, prevStep, markCompleted }: Props) => {
 
     const [errors, setErrors] = useState<FormErrors>({});

@@ -1,8 +1,6 @@
 import nodemailer from "nodemailer";
 
 export async function POST(req) {
-  console.log('called...')
-  
   try {
     const data = await req.json();
 
@@ -15,8 +13,6 @@ export async function POST(req) {
         pass: process.env.GMAIL_PASS,
       },
     });
-
-    return Response.json({ success: true });
 
     await transporter.sendMail({
       from: `"Premium Hyper Cleaning Solutions" <${process.env.GMAIL_USER}>`,

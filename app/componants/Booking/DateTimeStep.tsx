@@ -7,6 +7,7 @@ type Props = {
     setFormData: React.Dispatch<React.SetStateAction<FormData>>;
     nextStep: () => void;
     prevStep: () => void;
+    markCompleted: (params: number) => void;
 };
 
 const timeSlots = [
@@ -27,7 +28,7 @@ const timeSlots = [
 ];
 
 
-const DateTimeStep = ({ formData, setFormData, nextStep, prevStep }: Props) => {
+const DateTimeStep = ({ formData, setFormData, nextStep, prevStep, markCompleted }: Props) => {
     const isValid = formData.date && formData.time;
 
     return (
@@ -107,7 +108,10 @@ const DateTimeStep = ({ formData, setFormData, nextStep, prevStep }: Props) => {
 
                 <button
                     disabled={!isValid}
-                    onClick={nextStep}
+                    onClick={()=>{
+                        nextStep()
+                        markCompleted(2)
+                    }}
                     className="px-6 py-3 cursor-pointer inline-flex gap-2 bg-blue-600 items-center text-white rounded-lg disabled:opacity-50"
                 >
                     Continue <ArrowRight className="w-4 h-4" />

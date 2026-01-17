@@ -2,6 +2,7 @@ import { ArrowLeft } from "lucide-react";
 import { FormData, ServiceType } from "./BookingWIzard";
 import { Toaster, toast } from 'sonner';
 import { useRouter } from "next/navigation";
+import { PRICE_PER_HOUR } from "@/utils/constants";
 
 type Props = {
   formData: FormData;
@@ -31,13 +32,15 @@ const Summary = ({ formData, prevStep }: Props) => {
     const result = await res.json();
     if (result.success) {
       toast.success("Booking sent successfully!")
-      setTimeout(()=> {
+      setTimeout(() => {
         router.push("/");
-      },2000)
+      }, 2000)
     } else {
       toast.error("Failed to send booking")
     }
   };
+
+  const totalAmount = formData.duration * PRICE_PER_HOUR;
 
   return (
     <section className="flex items-center justify-center">
@@ -75,6 +78,27 @@ const Summary = ({ formData, prevStep }: Props) => {
               </span>.
             </p>
 
+            <div className="flex justify-between items-center bg-white rounded-lg border p-4">
+              <div>
+                <p className="text-sm text-gray-500">Price per hour</p>
+                <p className="font-semibold text-gray-900">35 AED</p>
+              </div>
+
+              <div>
+                <p className="text-sm text-gray-500">Duration</p>
+                <p className="font-semibold text-gray-900">
+                  {formData.duration} hour{formData.duration > 1 ? "s" : ""}
+                </p>
+              </div>
+
+              <div>
+                <p className="text-sm text-gray-500">Total Amount</p>
+                <p className="font-bold text-lg text-blue-700">
+                  {totalAmount} AED
+                </p>
+              </div>
+            </div>
+            
             <p className="text-gray-700">
               Service location:
               <br />

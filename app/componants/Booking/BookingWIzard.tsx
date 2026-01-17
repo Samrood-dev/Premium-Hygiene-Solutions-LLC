@@ -76,7 +76,7 @@ const BookingWizard = () => {
             {steps.map((s) => {
               const isActive = step === s.id;
               const isUnlocked = s.id === 1 || completedSteps.includes(s.id - 1)
-              console.log({ isActive, isUnlocked })
+              console.log({ id: s.id, isActive, isUnlocked })
               return (
                 <div
                   key={s.id}
@@ -116,6 +116,7 @@ const BookingWizard = () => {
               setFormData={setFormData}
               nextStep={nextStep}
               prevStep={prevStep}
+              markCompleted={markCompleted}
             />}
           {step === 3 &&
             <BasicDetails

@@ -9,27 +9,22 @@ type Props = {
     prevStep: () => void;
 };
 
-const timeSlots = {
-    morning: [
-        "07:00 - 08:00 am",
-        "08:00 - 09:00 am",
-        "09:00 - 10:00 am",
-        "10:00 - 11:00 am",
-        "11:00 - 12:00 am",
-    ],
-    afternoon: [
-        "12:00 - 01:00 pm",
-        "01:00 - 02:00 pm",
-        "02:00 - 03:00 pm",
-        "03:00 - 04:00 pm",
-    ],
-    evening: [
-        "04:00 - 05:00 pm",
-        "05:00 - 06:00 pm",
-        "06:00 - 07:00 pm",
-        "07:00 - 08:00 pm",
-    ],
-};
+const timeSlots = [
+    "7:00 AM",
+    "8:00 AM",
+    "9:00 AM",
+    "10:00 AM",
+    "11:00 AM",
+    "12:00 PM",
+    "1:00 PM",
+    "2:00 PM",
+    "3:00 PM",
+    "4:00 PM",
+    "5:00 PM",
+    "6:00 PM",
+    "7:00 PM",
+    "8:00 PM",
+];
 
 
 const DateTimeStep = ({ formData, setFormData, nextStep, prevStep }: Props) => {
@@ -47,39 +42,58 @@ const DateTimeStep = ({ formData, setFormData, nextStep, prevStep }: Props) => {
                     }} />
                 </div>
 
-                <div className="p-4 border mt-4 border-gray-300">
-                    <label className="block mb-2 font-medium">Time Slot</label>
+                <div className="p-4 border mt-4 border-gray-300 rounded-lg">
+                    <label className="block mb-2 font-medium">Service Time  </label>
 
-                    {Object.entries(timeSlots).map(([period, slots]) => (
-                        <div key={period} className="mb-4">
-                            <h4 className="font-semibold capitalize mb-2">{period}</h4>
+                    <select
+                        value={formData.time}
+                        onChange={(e) =>
+                            setFormData((prev) => ({ ...prev, time: e.target.value }))
+                        }
+                        className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    >
+                        <option value="" disabled>
+                            Select a time
+                        </option>
 
-                            <div className="grid grid-cols-2 gap-3">
-                                {slots.map((slot) => {
-                                    const isActive = formData.time === slot;
-
-                                    return (
-                                        <div
-                                            key={slot}
-                                            onClick={() =>
-                                                setFormData((prev) => ({ ...prev, time: slot }))
-                                            }
-                                            className={`
-                                            p-1 rounded-md text-center border cursor-pointer transition
-                                            ${isActive
-                                                    ? "bg-gray-300 border-gray-400 shadow-md"
-                                                    : "bg-white border-gray-200 hover:border-blue-400"
-                                                }
-                                            `}
-                                        >
-                                            {slot}
-                                        </div>
-                                    );
-                                })}
-                            </div>
-                        </div>
-                    ))}
+                        {timeSlots.map((slot) => (
+                            <option key={slot} value={slot}>
+                                {slot}
+                            </option>
+                        ))}
+                    </select>
                 </div>
+
+                <div className="p-4 border mt-4 border-gray-300 rounded-lg">
+                    <label className="block mb-2 font-medium">
+                        Service Duration:
+                        <span className="ml-2 text-blue-600 font-semibold">
+                            {formData.duration} Hour{formData.duration > 1 ? "s" : ""}
+                        </span>
+                    </label>
+
+                    <input
+                        type="range"
+                        min={1}
+                        max={8}
+                        step={1}
+                        value={formData.duration}
+                        onChange={(e) =>
+                            setFormData((prev) => ({
+                                ...prev,
+                                duration: Number(e.target.value),
+                            }))
+                        }
+                        className="w-full accent-blue-600 cursor-pointer"
+                    />
+
+                    <div className="flex justify-between text-xs text-gray-500 mt-1">
+                        <span>1 hr</span>
+                        <span>8 hrs</span>
+                    </div>
+                </div>
+
+
             </div>
 
             <div className="flex justify-end gap-4 mt-8">

@@ -1,13 +1,12 @@
-
 import { ArrowLeft } from "lucide-react";
 import { FormData, ServiceType } from "./BookingWIzard";
 import { Toaster, toast } from 'sonner';
+import { useRouter } from "next/navigation";
 
 type Props = {
   formData: FormData;
   prevStep: () => void;
 };
-
 
 const serviceNames: Record<ServiceType, string> = {
   normal: 'Normal Cleaning',
@@ -17,6 +16,8 @@ const serviceNames: Record<ServiceType, string> = {
 }
 
 const Summary = ({ formData, prevStep }: Props) => {
+  const router = useRouter()
+
   const handleSubmit = async () => {
     const res = await fetch("/api/send-mail", {
       method: "POST",
@@ -30,78 +31,84 @@ const Summary = ({ formData, prevStep }: Props) => {
     const result = await res.json();
     if (result.success) {
       toast.success("Booking sent successfully!")
+      setTimeout(()=> {
+        router.push("/");
+      },2000)
     } else {
       toast.error("Failed to send booking")
     }
   };
 
   return (
-    <section className="border border-gray-300 p-6 flex items-center">
-      <div className="max-w-3xl mx-auto px-4 w-full">
-        <div className="bg-white rounded-2xl shadow-lg p-8 space-y-6">
-          <h2 className="text-2xl font-bold text-gray-900 text-center">
+    <section className="flex items-center justify-center">
+      <div className="w-full max-w-4xl rounded-3xl border-2 border-gray-300 shadow-xl p-1">
+        {/* Inner Card */}
+        <div className="bg-white rounded-3xl p-8 space-y-6">
+          <h2 className="text-3xl font-bold text-gray-900 text-center">
             Confirm Your Booking
           </h2>
           <p className="text-center text-gray-500">
-            Please review the details before submitting
+            One last check before we schedule your service
           </p>
 
+
           {/* Main Info */}
-          <div className="bg-blue-50 border border-blue-100 rounded-xl p-5 space-y-3">
-            <p className="text-gray-700">
-              You have selected{" "}
+          <div className="relative bg-blue-50 border-l-4 border-blue-600 rounded-xl p-5 space-y-3">
+            <p className="text-gray-800 leading-relaxed text-base">
+              You have booked{" "}
               <span className="font-semibold text-blue-700">
                 {formData.service && serviceNames[formData.service]}
               </span>{" "}
               on{" "}
               <span className="font-semibold">
-                {formData.date
-                  ? formData.date.toLocaleDateString("en-IN", {
-                    day: "numeric",
-                    month: "long",
-                    year: "numeric",
-                  })
-                  : "No date selected"}
+                {formData.date?.toLocaleDateString("en-IN", {
+                  day: "numeric",
+                  month: "long",
+                  year: "numeric",
+                })}
               </span>{" "}
-              at{" "}
+              starting at{" "}
+              <span className="font-semibold text-blue-700">{formData.time}</span>{" "}
+              for{" "}
               <span className="font-semibold text-blue-700">
-                {formData.time}
-              </span>
-              .
+                {formData.duration} hour{formData.duration > 1 ? "s" : ""}
+              </span>.
             </p>
 
             <p className="text-gray-700">
-              The service will be provided at:
+              Service location:
               <br />
-              <span className="font-medium">{formData.address}</span>
+              <span className="font-medium text-gray-900">{formData.address}</span>
             </p>
           </div>
 
+
           {/* Contact Info */}
-          <div className="grid sm:grid-cols-2 gap-4">
-            <div className="bg-gray-50 rounded-xl p-4">
-              <p className="text-sm text-gray-500">Customer Name</p>
-              <p className="font-medium text-gray-900">{formData.name}</p>
-            </div>
-
-            <div className="bg-gray-50 rounded-xl p-4">
-              <p className="text-sm text-gray-500">Phone</p>
-              <p className="font-medium text-gray-900">{formData.phone}</p>
-            </div>
-
-            <div className="bg-gray-50 rounded-xl p-4">
-              <p className="text-sm text-gray-500">Email</p>
-              <p className="font-medium text-gray-900">{formData.email}</p>
-            </div>
+          <div className="grid md:grid-cols-2 gap-4">
+            {[
+              { label: "Customer Name", value: formData.name },
+              { label: "Phone", value: formData.phone },
+              { label: "Email", value: formData.email },
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="bg-gray-50 border border-gray-200 rounded-xl p-4 hover:shadow-md transition"
+              >
+                <p className="text-sm text-gray-500">{item.label}</p>
+                <p className="font-semibold text-gray-900">{item.value}</p>
+              </div>
+            ))}
           </div>
+
 
           {/* Message */}
           {formData.message && (
-            <div className="bg-yellow-50 border border-yellow-100 rounded-xl p-4">
+            <div className="bg-yellow-50 border-l-4 border-yellow-400 rounded-xl p-4">
               <p className="text-sm text-gray-600 mb-1">Additional Message</p>
               <p className="text-gray-800">{formData.message}</p>
             </div>
           )}
+
 
           {/* Actions */}
           <div className="flex justify-end gap-4 mt-8">
@@ -124,7 +131,7 @@ const Summary = ({ formData, prevStep }: Props) => {
           </div>
         </div>
       </div>
-      <Toaster position="top-right"/>
+      <Toaster position="top-right" />
     </section>
   );
 };

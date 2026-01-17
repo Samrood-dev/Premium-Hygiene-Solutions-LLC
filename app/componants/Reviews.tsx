@@ -122,7 +122,7 @@ const Reviews = () => {
             <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
               Join hundreds of satisfied customers who trust PremiumHyper for their cleaning needs.
             </p>
-            <a href="#booking" className="inline-block bg-white text-blue-600 px-8 py-3 rounded-lg text-lg font-semibold hover:bg-gray-100 transition">
+            <a href="/booking" className="inline-block bg-white text-blue-600 px-8 py-3 rounded-lg text-lg font-semibold hover:bg-gray-100 transition">
               Book Your Cleaning Today
             </a>
           </div>

@@ -1,0 +1,35 @@
+/* Root */
+.rdp-root {
+    width: 100%;
+  }
+  
+  /* Months wrapper */
+  .rdp-months {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  /* Single month container */
+  .rdp-month {
+    width: 100%;
+  }
+  
+  /* Table (calendar grid) */
+  .rdp-month_grid {
+    width: 100%;
+    table-layout: fixed;
+  }
+  
+  /* Each column equal width */
+  .rdp-day,
+  .rdp-weekday {
+    width: calc(100% / 7);
+    text-align: center;
+  }
+  
+  /* Buttons inside cells should fill */
+  .rdp-day_button {
+    width: 100%;
+  }
+  

@@ -1,0 +1,52 @@
+import { Sparkles } from "lucide-react";
+
+
+// Footer Component
+const Footer = () => {
+    return (
+      <footer className="bg-gray-900 text-white py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-3 gap-8">
+            <div>
+              <div className="flex items-center mb-4">
+                <Sparkles className="h-8 w-8 text-blue-400" />
+                <span className="ml-2 text-xl font-bold">PremiumHyper</span>
+              </div>
+              <p className="text-gray-400">Professional cleaning services you can trust. Making your space sparkle since 2015.</p>
+            </div>
+  
+            <div>
+              <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
+              <ul className="space-y-2">
+                <li><a href="#home" className="text-gray-400 hover:text-white transition">Home</a></li>
+                <li><a href="#about" className="text-gray-400 hover:text-white transition">About</a></li>
+                <li><a href="#services" className="text-gray-400 hover:text-white transition">Services</a></li>
+                <li><a href="#contact" className="text-gray-400 hover:text-white transition">Contact</a></li>
+              </ul>
+            </div>
+  
+            <div>
+              <h4 className="text-lg font-semibold mb-4">Newsletter</h4>
+              <p className="text-gray-400 mb-4">Subscribe to get special offers and cleaning tips.</p>
+              <div className="flex">
+                <input
+                  type="email"
+                  placeholder="Your email"
+                  className="flex-1 px-4 py-2 rounded-l-lg bg-gray-800 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-600"
+                />
+                <button className="bg-blue-600 px-4 py-2 rounded-r-lg hover:bg-blue-700 transition">
+                  Subscribe
+                </button>
+              </div>
+            </div>
+          </div>
+  
+          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+            <p>&copy; 2025 PremiumHyper. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
+    );
+  };
+  
+export default Footer;  

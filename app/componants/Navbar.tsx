@@ -1,5 +1,8 @@
+"use client"
 import { Menu, X, Sparkles, } from 'lucide-react';
 import { useState } from 'react';
+import MotionContainer from './MotionContainer/MotionContainer';
+import MotionItem from './MotionItem/MotionItem';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -13,16 +16,26 @@ const Navbar = () => {
                         <span className="ml-2 text-xl font-bold text-gray-800">Premium Hygiene Solutions LLC</span>
                     </div>
 
-                    <div className="hidden md:flex space-x-8 items-center">
-                        <a href="/#home" className="text-gray-700 hover:text-blue-600 transition">Home</a>
-                        <a href="/#about" className="text-gray-700 hover:text-blue-600 transition">About</a>
-                        <a href="/#services" className="text-gray-700 hover:text-blue-600 transition">Services</a>
-                        <a href="/#contact" className="text-gray-700 hover:text-blue-600 transition">Contact</a>
-                        <a href="/booking" className="px-3 py-2 font-bold text-white rounded-md bg-blue-600 hover:bg-blue-700 hover:text-white transition">Book Now</a>
-                    </div>
+                    <MotionContainer className="hidden md:flex space-x-8 items-center">
+                        <MotionItem>
+                            <a href="/#home" className="text-gray-700 hover:text-blue-600 transition">Home</a>
+                        </MotionItem>
+                        <MotionItem>
+                            <a href="/#about" className="text-gray-700 hover:text-blue-600 transition">About</a>
+                        </MotionItem>
+                        <MotionItem>
+                            <a href="/#services" className="text-gray-700 hover:text-blue-600 transition">Services</a>
+                        </MotionItem>
+                        <MotionItem>
+                            <a href="/#contact" className="text-gray-700 hover:text-blue-600 transition">Contact</a>
+                        </MotionItem>
+                        <MotionItem>
+                            <a href="/booking" className="px-3 py-2 font-bold text-white rounded-md bg-blue-600 hover:bg-blue-700 hover:text-white whitespace-nowrap transition">Book Now</a>
+                        </MotionItem>
+                    </MotionContainer>
 
                     <button onClick={() => setIsOpen(!isOpen)} className="md:hidden">
-                        {isOpen ? <X className="h-6 w-6" /> : <Menu  className="h-6 w-6 text-black" />}
+                        {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6 text-black" />}
                     </button>
                 </div>
             </div>

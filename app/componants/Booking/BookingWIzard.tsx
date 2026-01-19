@@ -1,4 +1,4 @@
-
+"use client"
 import { useEffect, useState } from "react";
 import BasicDetails from "./BasicDetails";
 import DateTimeStep from "./DateTimeStep";

@@ -1,6 +1,4 @@
-"use client"
 import About from "./componants/About";
-import BookingForm from "./componants/Booking/BasicDetails";
 import Contact from "./componants/Contact";
 import Footer from "./componants/Footer";
 import Hero from "./componants/Hero";

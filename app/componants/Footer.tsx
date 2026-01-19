@@ -10,7 +10,7 @@ const Footer = () => {
             <div>
               <div className="flex items-center mb-4">
                 <Sparkles className="h-8 w-8 text-blue-400" />
-                <span className="ml-2 text-xl font-bold">PremiumHyper</span>
+                <span className="ml-2 text-xl font-bold">PremiumHygiene</span>
               </div>
               <p className="text-gray-400">Professional cleaning services you can trust. Making your space sparkle since 2015.</p>
             </div>
@@ -42,7 +42,7 @@ const Footer = () => {
           </div>
   
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2025 PremiumHyper. All rights reserved.</p>
+            <p>&copy; 2025 PremiumHygiene. All rights reserved.</p>
           </div>
         </div>
       </footer>

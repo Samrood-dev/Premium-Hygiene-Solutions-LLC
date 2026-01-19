@@ -8,7 +8,7 @@ const Reviews = () => {
         rating: 5,
         date: "December 2024",
         service: "Home Cleaning",
-        review: "Absolutely fantastic service! The team was professional, thorough, and my house has never looked better. They paid attention to every detail and were very respectful of my home. I'll definitely be using PremiumHyper regularly.",
+        review: "Absolutely fantastic service! The team was professional, thorough, and my house has never looked better. They paid attention to every detail and were very respectful of my home. I'll definitely be using PremiumHygiene regularly.",
         avatar: "SJ"
       },
       {
@@ -16,7 +16,7 @@ const Reviews = () => {
         rating: 5,
         date: "November 2024",
         service: "Office Cleaning",
-        review: "We've been using PremiumHyper for our office for 6 months now and couldn't be happier. They're always on time, professional, and our workspace looks immaculate. Our employees have noticed the difference!",
+        review: "We've been using PremiumHygiene for our office for 6 months now and couldn't be happier. They're always on time, professional, and our workspace looks immaculate. Our employees have noticed the difference!",
         avatar: "MC"
       },
       {
@@ -24,7 +24,7 @@ const Reviews = () => {
         rating: 5,
         date: "January 2025",
         service: "Deep Cleaning",
-        review: "I hired PremiumHyper for a deep clean before moving into my new apartment. They exceeded my expectations! Every corner was spotless, and they even cleaned areas I didn't think about. Worth every penny!",
+        review: "I hired PremiumHygiene for a deep clean before moving into my new apartment. They exceeded my expectations! Every corner was spotless, and they even cleaned areas I didn't think about. Worth every penny!",
         avatar: "ER"
       },
       {
@@ -40,7 +40,7 @@ const Reviews = () => {
         rating: 5,
         date: "October 2024",
         service: "Home Cleaning",
-        review: "I'm so impressed with PremiumHyper! As a busy mom of three, having them come bi-weekly has been a lifesaver. The team is trustworthy, friendly, and my home always sparkles when they're done.",
+        review: "I'm so impressed with PremiumHygiene! As a busy mom of three, having them come bi-weekly has been a lifesaver. The team is trustworthy, friendly, and my home always sparkles when they're done.",
         avatar: "LM"
       },
       {
@@ -48,7 +48,7 @@ const Reviews = () => {
         rating: 5,
         date: "November 2024",
         service: "Office Cleaning",
-        review: "Professional, reliable, and thorough. They use eco-friendly products which was important to us. Our office has never been cleaner. Highly recommend PremiumHyper to any business!",
+        review: "Professional, reliable, and thorough. They use eco-friendly products which was important to us. Our office has never been cleaner. Highly recommend PremiumHygiene to any business!",
         avatar: "JW"
       }
     ];
@@ -120,7 +120,7 @@ const Reviews = () => {
               Ready to Experience the Difference?
             </h3>
             <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-              Join hundreds of satisfied customers who trust PremiumHyper for their cleaning needs.
+              Join hundreds of satisfied customers who trust PremiumHygiene for their cleaning needs.
             </p>
             <a href="/booking" className="inline-block bg-white text-primary px-8 py-3 rounded-lg text-lg font-semibold hover:bg-gray-100 transition">
               Book Your Cleaning Today

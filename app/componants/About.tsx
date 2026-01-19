@@ -29,23 +29,23 @@ const About = () => {
               <h3 className="text-2xl font-semibold text-gray-900 mb-6">Why Choose Us?</h3>
               <ul className="space-y-4">
                 <li className="flex items-start">
-                  <CheckCircle className="h-6 w-6 text-blue-600 mr-3 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="h-6 w-6 text-primary mr-3 flex-shrink-0 mt-0.5" />
                   <span className="text-gray-700">Trained and background-checked professionals</span>
                 </li>
                 <li className="flex items-start">
-                  <CheckCircle className="h-6 w-6 text-blue-600 mr-3 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="h-6 w-6 text-primary mr-3 flex-shrink-0 mt-0.5" />
                   <span className="text-gray-700">Eco-friendly cleaning products</span>
                 </li>
                 <li className="flex items-start">
-                  <CheckCircle className="h-6 w-6 text-blue-600 mr-3 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="h-6 w-6 text-primary mr-3 flex-shrink-0 mt-0.5" />
                   <span className="text-gray-700">100% satisfaction guarantee</span>
                 </li>
                 <li className="flex items-start">
-                  <CheckCircle className="h-6 w-6 text-blue-600 mr-3 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="h-6 w-6 text-primary mr-3 flex-shrink-0 mt-0.5" />
                   <span className="text-gray-700">Flexible scheduling and competitive pricing</span>
                 </li>
                 <li className="flex items-start">
-                  <CheckCircle className="h-6 w-6 text-blue-600 mr-3 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="h-6 w-6 text-primary mr-3 flex-shrink-0 mt-0.5" />
                   <span className="text-gray-700">Fully insured and bonded</span>
                 </li>
               </ul>

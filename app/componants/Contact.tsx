@@ -80,7 +80,7 @@ const Contact = () => {
                                     name="name"
                                     value={formData.name}
                                     onChange={handleChange}
-                                    className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 ${errors.name ? 'border-red-500' : 'border-gray-300'}`}
+                                    className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary ${errors.name ? 'border-red-500' : 'border-gray-300'}`}
                                 />
                                 {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
                             </div>
@@ -92,7 +92,7 @@ const Contact = () => {
                                     name="email"
                                     value={formData.email}
                                     onChange={handleChange}
-                                    className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 ${errors.email ? 'border-red-500' : 'border-gray-300'}`}
+                                    className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary ${errors.email ? 'border-red-500' : 'border-gray-300'}`}
                                 />
                                 {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
                             </div>
@@ -104,7 +104,7 @@ const Contact = () => {
                                     name="phone"
                                     value={formData.phone}
                                     onChange={handleChange}
-                                    className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 ${errors.phone ? 'border-red-500' : 'border-gray-300'}`}
+                                    className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary ${errors.phone ? 'border-red-500' : 'border-gray-300'}`}
                                 />
                                 {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
                             </div>
@@ -116,14 +116,14 @@ const Contact = () => {
                                     value={formData.message}
                                     onChange={handleChange}
                                     rows={4}
-                                    className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 ${errors.message ? 'border-red-500' : 'border-gray-300'}`}
+                                    className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary ${errors.message ? 'border-red-500' : 'border-gray-300'}`}
                                 ></textarea>
                                 {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
                             </div>
 
                             <button
                                 type="submit"
-                                className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition"
+                                className="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-primary-dark transition"
                             >
                                 Send Message
                             </button>
@@ -135,7 +135,7 @@ const Contact = () => {
 
                         <div className="space-y-6">
                             <div className="flex items-start">
-                                <Phone className="h-6 w-6 text-blue-600 mr-4 flex-shrink-0 mt-1" />
+                                <Phone className="h-6 w-6 text-primary mr-4 flex-shrink-0 mt-1" />
                                 <div>
                                     <h4 className="font-semibold text-gray-900 mb-1">Phone</h4>
                                     <p className="text-gray-600">+1 (555) 123-4567</p>
@@ -143,7 +143,7 @@ const Contact = () => {
                             </div>
 
                             <div className="flex items-start">
-                                <Mail className="h-6 w-6 text-blue-600 mr-4 flex-shrink-0 mt-1" />
+                                <Mail className="h-6 w-6 text-primary mr-4 flex-shrink-0 mt-1" />
                                 <div>
                                     <h4 className="font-semibold text-gray-900 mb-1">Email</h4>
                                     <p className="text-gray-600">info@PremiumHyper.com</p>
@@ -151,7 +151,7 @@ const Contact = () => {
                             </div>
 
                             <div className="flex items-start">
-                                <MapPin className="h-6 w-6 text-blue-600 mr-4 flex-shrink-0 mt-1" />
+                                <MapPin className="h-6 w-6 text-primary mr-4 flex-shrink-0 mt-1" />
                                 <div>
                                     <h4 className="font-semibold text-gray-900 mb-1">Address</h4>
                                     <p className="text-gray-600">123 Clean Street, Suite 100<br />Cityville, ST 12345</p>
@@ -159,7 +159,7 @@ const Contact = () => {
                             </div>
 
                             <div className="flex items-start">
-                                <Clock className="h-6 w-6 text-blue-600 mr-4 flex-shrink-0 mt-1" />
+                                <Clock className="h-6 w-6 text-primary mr-4 flex-shrink-0 mt-1" />
                                 <div>
                                     <h4 className="font-semibold text-gray-900 mb-1">Business Hours</h4>
                                     <p className="text-gray-600">Monday - Friday: 8:00 AM - 6:00 PM<br />Saturday: 9:00 AM - 4:00 PM<br />Sunday: Closed</p>

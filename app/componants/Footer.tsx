@@ -32,9 +32,9 @@ const Footer = () => {
                 <input
                   type="email"
                   placeholder="Your email"
-                  className="flex-1 px-4 py-2 rounded-l-lg bg-gray-800 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-600"
+                  className="flex-1 px-4 py-2 rounded-l-lg bg-gray-800 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-primary"
                 />
-                <button className="bg-blue-600 px-4 py-2 rounded-r-lg hover:bg-blue-700 transition">
+                <button className="bg-primary px-4 py-2 rounded-r-lg hover:bg-primary-dark transition">
                   Subscribe
                 </button>
               </div>

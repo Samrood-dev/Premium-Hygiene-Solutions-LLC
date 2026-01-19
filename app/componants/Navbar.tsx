@@ -11,26 +11,30 @@ const Navbar = () => {
         <nav className="bg-white shadow-md fixed w-full top-0 z-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-16">
-                    <div className="flex items-center">
-                        <Sparkles className="h-8 w-8 text-blue-600" />
+                    <MotionContainer className="flex items-center">
+                        <MotionItem>
+                        <Sparkles className="h-8 w-8 text-primary" />
+                        </MotionItem>
+                        <MotionItem>
                         <span className="ml-2 text-xl font-bold text-gray-800">Premium Hygiene Solutions LLC</span>
-                    </div>
+                        </MotionItem>
+                    </MotionContainer>
 
                     <MotionContainer className="hidden md:flex space-x-8 items-center">
                         <MotionItem>
-                            <a href="/#home" className="text-gray-700 hover:text-blue-600 transition">Home</a>
+                            <a href="/#home" className="text-gray-700 hover:text-primary transition">Home</a>
                         </MotionItem>
                         <MotionItem>
-                            <a href="/#about" className="text-gray-700 hover:text-blue-600 transition">About</a>
+                            <a href="/#about" className="text-gray-700 hover:text-primary transition">About</a>
                         </MotionItem>
                         <MotionItem>
-                            <a href="/#services" className="text-gray-700 hover:text-blue-600 transition">Services</a>
+                            <a href="/#services" className="text-gray-700 hover:text-primary transition">Services</a>
                         </MotionItem>
                         <MotionItem>
-                            <a href="/#contact" className="text-gray-700 hover:text-blue-600 transition">Contact</a>
+                            <a href="/#contact" className="text-gray-700 hover:text-primary transition">Contact</a>
                         </MotionItem>
                         <MotionItem>
-                            <a href="/booking" className="px-3 py-2 font-bold text-white rounded-md bg-blue-600 hover:bg-blue-700 hover:text-white whitespace-nowrap transition">Book Now</a>
+                            <a href="/booking" className="px-3 py-2 font-bold text-white rounded-md bg-primary hover:bg-primary-dark hover:text-white whitespace-nowrap transition">Book Now</a>
                         </MotionItem>
                     </MotionContainer>
 
@@ -47,6 +51,7 @@ const Navbar = () => {
                         <a href="/#about" className="block px-3 py-2 text-gray-700 hover:bg-blue-50">About</a>
                         <a href="/#services" className="block px-3 py-2 text-gray-700 hover:bg-blue-50">Services</a>
                         <a href="/#contact" className="block px-3 py-2 text-gray-700 hover:bg-blue-50">Contact</a>
+                        <a href="/booking" className="px-3 py-2 font-bold text-white rounded-md bg-primary hover:bg-primary-dark hover:text-white whitespace-nowrap transition">Book Now</a>
                     </div>
                 </div>
             )}

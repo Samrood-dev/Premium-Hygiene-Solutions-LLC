@@ -68,7 +68,7 @@ const DateTimeStep = ({ formData, setFormData, nextStep, prevStep, markCompleted
                 <div className="p-4 border mt-4 border-gray-300 rounded-lg">
                     <label className="block mb-2 font-medium">
                         Service Duration:
-                        <span className="ml-2 text-blue-600 font-semibold">
+                        <span className="ml-2 text-primary font-semibold">
                             {formData.duration} Hour{formData.duration > 1 ? "s" : ""}
                         </span>
                     </label>
@@ -85,7 +85,7 @@ const DateTimeStep = ({ formData, setFormData, nextStep, prevStep, markCompleted
                                 duration: Number(e.target.value),
                             }))
                         }
-                        className="w-full accent-blue-600 cursor-pointer"
+                        className="w-full accent-primary cursor-pointer"
                     />
 
                     <div className="flex justify-between text-xs text-gray-500 mt-1">
@@ -112,7 +112,7 @@ const DateTimeStep = ({ formData, setFormData, nextStep, prevStep, markCompleted
                         nextStep()
                         markCompleted(2)
                     }}
-                    className="px-6 py-3 cursor-pointer inline-flex gap-2 bg-blue-600 items-center text-white rounded-lg disabled:opacity-50"
+                    className="px-6 py-3 cursor-pointer inline-flex gap-2 bg-primary items-center text-white rounded-lg disabled:opacity-50"
                 >
                     Continue <ArrowRight className="w-4 h-4" />
                 </button>

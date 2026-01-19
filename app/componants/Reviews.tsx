@@ -81,7 +81,7 @@ const Reviews = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
             {stats.map((stat, index) => (
               <div key={index} className="text-center p-6 bg-blue-50 rounded-lg">
-                <div className="text-3xl md:text-4xl font-bold text-blue-600 mb-2">{stat.number}</div>
+                <div className="text-3xl md:text-4xl font-bold text-primary mb-2">{stat.number}</div>
                 <div className="text-gray-600">{stat.label}</div>
               </div>
             ))}
@@ -92,7 +92,7 @@ const Reviews = () => {
             {reviews.map((review, index) => (
               <div key={index} className="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-xl transition">
                 <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-semibold text-lg mr-4">
+                  <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-semibold text-lg mr-4">
                     {review.avatar}
                   </div>
                   <div className="flex-1">
@@ -115,14 +115,14 @@ const Reviews = () => {
           </div>
   
           {/* Call to Action */}
-          <div className="mt-16 text-center bg-gradient-to-r from-blue-600 to-blue-700 rounded-lg p-12">
+          <div className="mt-16 text-center bg-gradient-to-r from-primary to-primary-dark rounded-lg p-12">
             <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
               Ready to Experience the Difference?
             </h3>
             <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
               Join hundreds of satisfied customers who trust PremiumHyper for their cleaning needs.
             </p>
-            <a href="/booking" className="inline-block bg-white text-blue-600 px-8 py-3 rounded-lg text-lg font-semibold hover:bg-gray-100 transition">
+            <a href="/booking" className="inline-block bg-white text-primary px-8 py-3 rounded-lg text-lg font-semibold hover:bg-gray-100 transition">
               Book Your Cleaning Today
             </a>
           </div>

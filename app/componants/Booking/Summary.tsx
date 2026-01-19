@@ -56,10 +56,10 @@ const Summary = ({ formData, prevStep }: Props) => {
 
 
           {/* Main Info */}
-          <div className="relative bg-blue-50 border-l-4 border-blue-600 rounded-xl p-5 space-y-3">
+          <div className="relative bg-blue-50 border-l-4 border-primary rounded-xl p-5 space-y-3">
             <p className="text-gray-800 leading-relaxed text-base">
               You have booked{" "}
-              <span className="font-semibold text-blue-700">
+              <span className="font-semibold text-primary-dark">
                 {formData.service && serviceNames[formData.service]}
               </span>{" "}
               on{" "}
@@ -71,9 +71,9 @@ const Summary = ({ formData, prevStep }: Props) => {
                 })}
               </span>{" "}
               starting at{" "}
-              <span className="font-semibold text-blue-700">{formData.time}</span>{" "}
+              <span className="font-semibold text-primary-dark">{formData.time}</span>{" "}
               for{" "}
-              <span className="font-semibold text-blue-700">
+              <span className="font-semibold text-primary-dark">
                 {formData.duration} hour{formData.duration > 1 ? "s" : ""}
               </span>.
             </p>
@@ -93,7 +93,7 @@ const Summary = ({ formData, prevStep }: Props) => {
 
               <div>
                 <p className="text-sm text-gray-500">Total Amount</p>
-                <p className="font-bold text-lg text-blue-700">
+                <p className="font-bold text-lg text-primary-dark">
                   {totalAmount} AED
                 </p>
               </div>
@@ -148,7 +148,7 @@ const Summary = ({ formData, prevStep }: Props) => {
             <button
               onClick={handleSubmit}
               disabled={!formData.date}
-              className="px-6 py-3 cursor-pointer inline-flex gap-2 bg-blue-600 items-center text-white rounded-lg disabled:opacity-50"
+              className="px-6 py-3 cursor-pointer inline-flex gap-2 bg-primary items-center text-white rounded-lg disabled:opacity-50"
             >
               Confirm & Submit
             </button>

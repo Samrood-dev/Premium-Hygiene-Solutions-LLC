@@ -65,7 +65,7 @@ const BasicDetails = ({ formData, setFormData, nextStep, prevStep, markCompleted
                                 name="name"
                                 value={formData.name}
                                 onChange={handleChange}
-                                className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 ${errors.name ? 'border-red-500' : 'border-gray-300'}`}
+                                className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary ${errors.name ? 'border-red-500' : 'border-gray-300'}`}
                             />
                             {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
                         </div>
@@ -77,7 +77,7 @@ const BasicDetails = ({ formData, setFormData, nextStep, prevStep, markCompleted
                                 name="email"
                                 value={formData.email}
                                 onChange={handleChange}
-                                className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 ${errors.email ? 'border-red-500' : 'border-gray-300'}`}
+                                className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary ${errors.email ? 'border-red-500' : 'border-gray-300'}`}
                             />
                             {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
                         </div>
@@ -91,7 +91,7 @@ const BasicDetails = ({ formData, setFormData, nextStep, prevStep, markCompleted
                             name="phone"
                             value={formData.phone}
                             onChange={handleChange}
-                            className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 ${errors.address ? 'border-red-500' : 'border-gray-300'}`}
+                            className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary ${errors.address ? 'border-red-500' : 'border-gray-300'}`}
                         />
                         {errors.address && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
                     </div>
@@ -102,7 +102,7 @@ const BasicDetails = ({ formData, setFormData, nextStep, prevStep, markCompleted
                             name="address"
                             value={formData.address}
                             onChange={handleChange}
-                            className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 ${errors.address ? 'border-red-500' : 'border-gray-300'}`}
+                            className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary ${errors.address ? 'border-red-500' : 'border-gray-300'}`}
                         />
                         {errors.address && <p className="text-red-500 text-sm mt-1">{errors.address}</p>}
                     </div>
@@ -114,7 +114,7 @@ const BasicDetails = ({ formData, setFormData, nextStep, prevStep, markCompleted
                             value={formData.message}
                             onChange={handleChange}
                             rows={4}
-                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                         ></textarea>
                     </div>
 
@@ -129,7 +129,7 @@ const BasicDetails = ({ formData, setFormData, nextStep, prevStep, markCompleted
 
                         <button
                             onClick={handleNext}
-                            className="px-6 py-3 cursor-pointer inline-flex gap-2 bg-blue-600 items-center text-white rounded-lg disabled:opacity-50"
+                            className="px-6 py-3 cursor-pointer inline-flex gap-2 bg-primary items-center text-white rounded-lg disabled:opacity-50"
                         >
                             Continue <ArrowRight className="w-4 h-4" />
                         </button>

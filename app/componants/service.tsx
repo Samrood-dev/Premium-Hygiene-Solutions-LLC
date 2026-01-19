@@ -4,22 +4,22 @@ import { Briefcase, Building, Home, Sparkles } from "lucide-react";
 const Services = () => {
     const services = [
       {
-        icon: <Home className="h-12 w-12 text-blue-600" />,
+        icon: <Home className="h-12 w-12 text-primary" />,
         title: "Home Cleaning",
         description: "Comprehensive cleaning for your home including dusting, vacuuming, mopping, and sanitizing all living spaces."
       },
       {
-        icon: <Briefcase className="h-12 w-12 text-blue-600" />,
+        icon: <Briefcase className="h-12 w-12 text-primary" />,
         title: "Office Cleaning",
         description: "Professional office cleaning services to maintain a clean and productive work environment for your team."
       },
       {
-        icon: <Sparkles className="h-12 w-12 text-blue-600" />,
+        icon: <Sparkles className="h-12 w-12 text-primary" />,
         title: "Deep Cleaning",
         description: "Intensive cleaning service that tackles hard-to-reach areas and stubborn dirt for a thorough clean."
       },
       {
-        icon: <Building className="h-12 w-12 text-blue-600" />,
+        icon: <Building className="h-12 w-12 text-primary" />,
         title: "Commercial Cleaning",
         description: "Specialized cleaning solutions for retail spaces, restaurants, and commercial properties of all sizes."
       }

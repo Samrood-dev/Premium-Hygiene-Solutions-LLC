@@ -84,11 +84,11 @@ const BookingWizard = () => {
                   className={`
                         p-4 rounded-xl border transition-all
                         ${isActive
-                      ? "bg-blue-600 text-white border-blue-600 shadow-md"
+                      ? "bg-primary text-white border-primary shadow-md"
                       : ""
                     }
                         ${isUnlocked
-                      ? " border-gray-200 cursor-pointer hover:border-blue-400 hover:shadow-md"
+                      ? " border-gray-200 cursor-pointer hover:shadow-md"
                       : "bg-gray-50 border-gray-100 text-gray-400 cursor-not-allowed"
                     }
                       `}

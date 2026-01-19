@@ -58,8 +58,8 @@ const ServiceStep = ({ formData, setFormData, nextStep }: Props) => {
               onClick={() => selectService(service.id)}
               className={`cursor-pointer p-5 border rounded-xl transition shadow-sm
                   ${isActive
-                  ? "border-blue-600 bg-blue-50"
-                  : "border-gray-300 hover:border-blue-400"
+                  ? "border-primary bg-blue-50"
+                  : "border-gray-300 hover:shadow-lg"
                 }`}
             >
               <div className="flex items-start justify-between">
@@ -76,7 +76,7 @@ const ServiceStep = ({ formData, setFormData, nextStep }: Props) => {
                 </div>
 
                 {isActive && (
-                  <CheckCircle className="text-blue-600 w-6 h-6" />
+                  <CheckCircle className="text-primary w-6 h-6" />
                 )}
               </div>
             </div>
@@ -88,7 +88,7 @@ const ServiceStep = ({ formData, setFormData, nextStep }: Props) => {
         <button
           disabled={!formData.service}
           onClick={nextStep}
-          className="ml-auto cursor-pointer mt-8 bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold disabled:opacity-50"
+          className="ml-auto cursor-pointer mt-8 bg-primary text-white px-6 py-3 rounded-lg font-semibold disabled:opacity-50"
         >
           Continue
         </button>

@@ -5,7 +5,7 @@ const Hero = () => {
     return (
       <section
       id="home"
-      className="pt-16 relative bg-[url('/hero-bg.jpg')] bg-cover bg-center bg-no-repeat min-h-screen"
+      className="pt-16 relative bg-[url('/hero-bg.jpg')] bg-cover bg-right md:bg-top bg-no-repeat min-h-screen"
     >
       {/* Overlay for better text readability */}
       <div className="absolute inset-0 bg-black/40"></div>

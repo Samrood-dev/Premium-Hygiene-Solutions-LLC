@@ -18,7 +18,6 @@ export default function App() {
       <HowWeWork />
       <Contact />
       <Reviews/>
-      <Whatsapp/>
       <Footer />
     </div>
   );

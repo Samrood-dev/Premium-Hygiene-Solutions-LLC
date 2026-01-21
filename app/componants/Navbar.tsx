@@ -13,10 +13,10 @@ const Navbar = () => {
                 <div className="flex justify-between items-center h-16">
                     <MotionContainer className="flex items-center">
                         <MotionItem>
-                        <Sparkles className="h-8 w-8 text-primary" />
+                            <Sparkles className="h-8 w-8 text-primary" />
                         </MotionItem>
                         <MotionItem>
-                        <span className="ml-2 text-xl font-bold text-gray-800">Premium Hygiene Solutions LLC</span>
+                            <span className="ml-2 text-md md:text-xl font-bold text-gray-800">Premium Hygiene Solutions LLC</span>
                         </MotionItem>
                     </MotionContainer>
 
@@ -46,13 +46,27 @@ const Navbar = () => {
 
             {isOpen && (
                 <div className="md:hidden bg-white border-t">
-                    <div className="px-2 pt-2 pb-3 space-y-1">
-                        <a href="/" className="block px-3 py-2 text-gray-700 hover:bg-blue-50">Home</a>
-                        <a href="/#about" className="block px-3 py-2 text-gray-700 hover:bg-blue-50">About</a>
-                        <a href="/#services" className="block px-3 py-2 text-gray-700 hover:bg-blue-50">Services</a>
-                        <a href="/#contact" className="block px-3 py-2 text-gray-700 hover:bg-blue-50">Contact</a>
-                        <a href="/booking" className="px-3 py-2 font-bold text-white rounded-md bg-primary hover:bg-primary-dark hover:text-white whitespace-nowrap transition">Book Now</a>
-                    </div>
+                    <MotionContainer className="px-2 pt-2 pb-3 space-y-1">
+                        <MotionItem>
+
+                            <a href="/" className="block px-3 py-2 text-gray-700 hover:bg-blue-50">Home</a>
+                        </MotionItem>
+                        <MotionItem>
+
+                            <a href="/#about" className="block px-3 py-2 text-gray-700 hover:bg-blue-50">About</a>
+                        </MotionItem>
+                        <MotionItem>
+
+                            <a href="/#services" className="block px-3 py-2 text-gray-700 hover:bg-blue-50">Services</a>
+                        </MotionItem>
+                        <MotionItem>
+
+                            <a href="/#contact" className="block px-3 py-2 text-gray-700 hover:bg-blue-50">Contact</a>
+                        </MotionItem>
+                        <MotionItem>
+                            <a href="/booking" className="px-3 py-2 font-bold text-white rounded-md bg-primary hover:bg-primary-dark hover:text-white whitespace-nowrap transition">Book Now</a>
+                        </MotionItem>
+                    </MotionContainer>
                 </div>
             )}
         </nav>

@@ -9,12 +9,12 @@ const itemVariants = {
 
 interface MotionItemProps {
     children: ReactNode;
-    classNames?: string;
+    className?: string;
 }
 
-const MotionItem: FC<MotionItemProps> = ({ children, classNames = '' }) => {
+const MotionItem: FC<MotionItemProps> = ({ children, className = '' }) => {
     return (
-        <motion.div variants={itemVariants} className={classNames}>
+        <motion.div variants={itemVariants} className={className}>
             {children}
         </motion.div>
     );

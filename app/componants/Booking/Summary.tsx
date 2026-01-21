@@ -3,6 +3,8 @@ import { FormData, ServiceType } from "./BookingWIzard";
 import { Toaster, toast } from 'sonner';
 import { useRouter } from "next/navigation";
 import { PRICE_PER_HOUR } from "@/utils/constants";
+import MotionContainer from "../MotionContainer/MotionContainer";
+import MotionItem from "../MotionItem/MotionItem";
 
 type Props = {
   formData: FormData;
@@ -14,10 +16,10 @@ const serviceNames: Record<ServiceType, string> = {
   deep: 'Deep Cleaning',
   maid: 'Maid Service',
   office: 'Office Cleaning',
-}
+};
 
 const Summary = ({ formData, prevStep }: Props) => {
-  const router = useRouter()
+  const router = useRouter();
 
   const handleSubmit = async () => {
     const res = await fetch("/api/send-mail", {
@@ -31,115 +33,86 @@ const Summary = ({ formData, prevStep }: Props) => {
 
     const result = await res.json();
     if (result.success) {
-      toast.success("Booking sent successfully!")
-      setTimeout(() => {
-        router.push("/");
-      }, 2000)
+      toast.success("Booking sent successfully!");
+      setTimeout(() => router.push("/"), 2000);
     } else {
-      toast.error("Failed to send booking")
+      toast.error("Failed to send booking");
     }
   };
 
   const totalAmount = formData.duration * PRICE_PER_HOUR;
 
   return (
-    <section className="flex items-center justify-center">
-      <div className="w-full max-w-4xl rounded-3xl border-2 border-gray-300 shadow-xl p-1">
-        {/* Inner Card */}
-        <div className="bg-white rounded-3xl p-8 space-y-6">
-          <h2 className="text-3xl font-bold text-gray-900 text-center">
+    <MotionContainer className="flex justify-center items-start">
+      <div className="w-full border border-gray-300 p-4 max-w-3xl space-y-8">
+
+        {/* Header */}
+        <MotionItem>
+          <h2 className="text-3xl font-bold text-center text-gray-900">
             Confirm Your Booking
           </h2>
           <p className="text-center text-gray-500">
-            One last check before we schedule your service
+            Review all details before submitting your service
           </p>
+        </MotionItem>
 
-
-          {/* Main Info */}
-          <div className="relative bg-blue-50 border-l-4 border-primary rounded-xl p-5 space-y-3">
-            <p className="text-gray-800 leading-relaxed text-base">
-              You have booked{" "}
+        {/* Service Details */}
+        <MotionItem>
+          <div className="space-y-2">
+            <h3 className="text-xl font-semibold text-gray-900">Service Details</h3>
+            <p>
               <span className="font-semibold text-primary-dark">
                 {formData.service && serviceNames[formData.service]}
               </span>{" "}
               on{" "}
-              <span className="font-semibold">
+              <span className="font-medium">
                 {formData.date?.toLocaleDateString("en-IN", {
                   day: "numeric",
                   month: "long",
                   year: "numeric",
                 })}
               </span>{" "}
-              starting at{" "}
-              <span className="font-semibold text-primary-dark">{formData.time}</span>{" "}
-              for{" "}
-              <span className="font-semibold text-primary-dark">
-                {formData.duration} hour{formData.duration > 1 ? "s" : ""}
-              </span>.
+              at{" "}
+              <span className="font-semibold text-primary-dark">{formData.time}</span>
             </p>
-
-            <div className="flex justify-between items-center bg-white rounded-lg border p-4">
-              <div>
-                <p className="text-sm text-gray-500">Price per hour</p>
-                <p className="font-semibold text-gray-900">35 AED</p>
-              </div>
-
-              <div>
-                <p className="text-sm text-gray-500">Duration</p>
-                <p className="font-semibold text-gray-900">
-                  {formData.duration} hour{formData.duration > 1 ? "s" : ""}
-                </p>
-              </div>
-
-              <div>
-                <p className="text-sm text-gray-500">Total Amount</p>
-                <p className="font-bold text-lg text-primary-dark">
-                  {totalAmount} AED
-                </p>
-              </div>
-            </div>
-            
-            <p className="text-gray-700">
-              Service location:
-              <br />
-              <span className="font-medium text-gray-900">{formData.address}</span>
+            <p>
+              Duration: <span className="font-semibold">{formData.duration} hour{formData.duration > 1 ? "s" : ""}</span>
+            </p>
+            <p>
+              Location: <span className="font-medium text-gray-900">{formData.address}</span>
+            </p>
+            <p>
+              Total: <span className="font-bold text-primary-dark">{totalAmount} AED</span>
             </p>
           </div>
+        </MotionItem>
 
-
-          {/* Contact Info */}
-          <div className="grid md:grid-cols-2 gap-4">
-            {[
-              { label: "Customer Name", value: formData.name },
-              { label: "Phone", value: formData.phone },
-              { label: "Email", value: formData.email },
-            ].map((item, i) => (
-              <div
-                key={i}
-                className="bg-gray-50 border border-gray-200 rounded-xl p-4 hover:shadow-md transition"
-              >
-                <p className="text-sm text-gray-500">{item.label}</p>
-                <p className="font-semibold text-gray-900">{item.value}</p>
-              </div>
-            ))}
+        {/* Customer Info */}
+        <MotionItem>
+          <div className="space-y-2">
+            <h3 className="text-xl font-semibold text-gray-900">Customer Information</h3>
+            <p><span className="font-medium">Name:</span> {formData.name}</p>
+            <p><span className="font-medium">Phone:</span> {formData.phone}</p>
+            <p><span className="font-medium">Email:</span> {formData.email}</p>
           </div>
+        </MotionItem>
 
-
-          {/* Message */}
-          {formData.message && (
-            <div className="bg-yellow-50 border-l-4 border-yellow-400 rounded-xl p-4">
-              <p className="text-sm text-gray-600 mb-1">Additional Message</p>
-              <p className="text-gray-800">{formData.message}</p>
+        {/* Additional Message */}
+        {formData.message && (
+          <MotionItem>
+            <div className="space-y-1">
+              <h3 className="text-xl font-semibold text-gray-900">Additional Message</h3>
+              <p>{formData.message}</p>
             </div>
-          )}
+          </MotionItem>
+        )}
 
-
-          {/* Actions */}
-          <div className="flex justify-end gap-4 mt-8">
-
+        {/* Actions */}
+        <MotionItem>
+          <div className="flex justify-end gap-4 mt-4">
             <button
               onClick={prevStep}
-              className="px-6 py-3 cursor-pointer border rounded-lg inline-flex items-center gap-2 hover:bg-gray-100 transition"
+              className="px-6 py-3 border rounded-lg inline-flex items-center gap-2 hover:bg-gray-100 transition"
             >
               <ArrowLeft className="w-4 h-4" />
               Back
@@ -148,17 +121,17 @@ const Summary = ({ formData, prevStep }: Props) => {
             <button
               onClick={handleSubmit}
               disabled={!formData.date}
-              className="px-6 py-3 cursor-pointer inline-flex gap-2 bg-primary items-center text-white rounded-lg disabled:opacity-50"
+              className="px-6 py-3 bg-primary text-white rounded-lg font-semibold hover:bg-primary-dark disabled:opacity-50 transition"
             >
               Confirm & Submit
             </button>
           </div>
-        </div>
+        </MotionItem>
+
       </div>
       <Toaster position="top-right" />
-    </section>
+    </MotionContainer>
   );
 };
 
-
-export default Summary
+export default Summary;

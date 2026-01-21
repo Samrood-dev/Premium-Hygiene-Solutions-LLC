@@ -4,6 +4,9 @@ import BasicDetails from "./BasicDetails";
 import DateTimeStep from "./DateTimeStep";
 import ServiceStep from "./ServiceStep";
 import Summary from "./Summary";
+import MotionContainer from "../MotionContainer/MotionContainer";
+import MotionItem from "../MotionItem/MotionItem";
+import {motion} from 'framer-motion'
 
 const steps = [
   { id: 1, title: "Service" },
@@ -67,41 +70,48 @@ const BookingWizard = () => {
 
   return (
     <div className="py-20 max-w-full px-5">
-      <h2 className="text-3xl font-bold text-center mb-12">
-        Book your service
-      </h2>
+     <motion.h2
+      className="text-3xl font-bold text-center mb-12"
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+    >
+      Book your service
+    </motion.h2>
       <div className="flex flex-col md:flex-row justify-center gap-10 min-h-screen">
-        <div className="bg-white rounded-2xl border  max-h-fit border-gray-300 shadow-lg min-w-xs">
-          <div className="space-y-4 p-4">
+
+        <div className="bg-white rounded-2xl border max-h-fit border-gray-300 shadow-lg min-w-xs">
+          <MotionContainer className="space-y-4 p-4">
             {steps.map((s) => {
               const isActive = step === s.id;
-              const isUnlocked = s.id === 1 || completedSteps.includes(s.id - 1)
-              console.log({ id: s.id, isActive, isUnlocked })
+              const isUnlocked = s.id === 1 || completedSteps.includes(s.id - 1);
               return (
-                <div
-                  key={s.id}
-                  onClick={() => isUnlocked && goToStep(s.id)}
-                  className={`
-                        p-4 rounded-xl border transition-all
-                        ${isActive
-                      ? "bg-primary text-white border-primary shadow-md"
-                      : ""
-                    }
-                        ${isUnlocked
-                      ? " border-gray-200 cursor-pointer hover:shadow-md"
-                      : "bg-gray-50 border-gray-100 text-gray-400 cursor-not-allowed"
-                    }
-                      `}
-                >
-                  <p className="text-xs uppercase tracking-wide opacity-70">
-                    Step {s.id}
-                  </p>
-                  <h4 className="text-base font-semibold">{s.title}</h4>
-                </div>
+                <MotionItem key={s.id}>
+                  <div
+                    onClick={() => isUnlocked && goToStep(s.id)}
+                    className={`
+              p-4 rounded-xl border transition-all
+              ${isActive
+                        ? "bg-primary text-white border-primary shadow-md"
+                        : ""
+                      }
+              ${isUnlocked
+                        ? "border-gray-200 cursor-pointer hover:shadow-md"
+                        : "bg-gray-50 border-gray-100 text-gray-400 cursor-not-allowed"
+                      }
+            `}
+                  >
+                    <p className="text-xs uppercase tracking-wide opacity-70">
+                      Step {s.id}
+                    </p>
+                    <h4 className="text-base font-semibold">{s.title}</h4>
+                  </div>
+                </MotionItem>
               );
             })}
-          </div>
+          </MotionContainer>
         </div>
+
         <div className="flex-1 max-w-3xl">
 
           {step === 1 &&

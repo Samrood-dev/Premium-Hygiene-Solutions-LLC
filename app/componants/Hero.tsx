@@ -20,6 +20,9 @@ const Hero = () => {
           <p className="text-xl text-gray-200 mb-8 max-w-2xl">
             We provide top-quality cleaning services for homes and offices. Experience the sparkle of a professionally cleaned space.
           </p>
+          <p className="text-xl font-bold text-white mb-6 max-w-2xl">
+            @ 30 AED/HOUR
+          </p>
           </MotionItem>
           <MotionItem>
 

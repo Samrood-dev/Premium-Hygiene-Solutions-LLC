@@ -22,7 +22,7 @@ const Navbar = () => {
 
                     <MotionContainer className="hidden md:flex space-x-8 items-center">
                         <MotionItem>
-                            <a href="/#home" className="text-gray-700 hover:text-primary transition">Home</a>
+                            <a href="/" className="text-gray-700 hover:text-primary transition">Home</a>
                         </MotionItem>
                         <MotionItem>
                             <a href="/#about" className="text-gray-700 hover:text-primary transition">About</a>
@@ -47,7 +47,7 @@ const Navbar = () => {
             {isOpen && (
                 <div className="md:hidden bg-white border-t">
                     <div className="px-2 pt-2 pb-3 space-y-1">
-                        <a href="/#home" className="block px-3 py-2 text-gray-700 hover:bg-blue-50">Home</a>
+                        <a href="/" className="block px-3 py-2 text-gray-700 hover:bg-blue-50">Home</a>
                         <a href="/#about" className="block px-3 py-2 text-gray-700 hover:bg-blue-50">About</a>
                         <a href="/#services" className="block px-3 py-2 text-gray-700 hover:bg-blue-50">Services</a>
                         <a href="/#contact" className="block px-3 py-2 text-gray-700 hover:bg-blue-50">Contact</a>

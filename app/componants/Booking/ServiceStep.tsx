@@ -19,25 +19,25 @@ const services: Service[] = [
     id: "maid",
     title: "Maid Services",
     duration: "1h",
-    price: "AED 35.00",
+    price: "AED 30.00",
   },
   {
     id: "deep",
     title: "Deep Cleaning",
     duration: "1h",
-    price: "AED 35.00",
+    price: "AED 30.00",
   },
   {
     id: "office",
     title: "Office Cleaning",
     duration: "1h",
-    price: "AED 35.00",
+    price: "AED 30.00",
   },
   {
     id: "normal",
     title: "Normal Cleaning",
     duration: "1h",
-    price: "AED 35.00",
+    price: "AED 30.00",
   },
 ];
 

@@ -45,7 +45,7 @@ const Navbar = () => {
             </div>
 
             {isOpen && (
-                <div className="md:hidden bg-white border-t">
+                <div onClick={() => setIsOpen(false)} className="md:hidden bg-white border-t">
                     <MotionContainer className="px-2 pt-2 pb-3 space-y-1">
                         <MotionItem>
 

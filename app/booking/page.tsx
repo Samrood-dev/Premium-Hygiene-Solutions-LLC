@@ -1,5 +1,3 @@
-"use client"
-
 import BookingWizard from "../componants/Booking/BookingWIzard";
 import Footer from "../componants/Footer";
 import Navbar from "../componants/Navbar";

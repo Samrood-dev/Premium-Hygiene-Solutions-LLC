@@ -5,7 +5,8 @@ import Hero from "./componants/Hero";
 import HowWeWork from "./componants/HowWeWork";
 import Navbar from "./componants/Navbar";
 import Reviews from "./componants/Reviews";
-import Services from "./componants/service";
+import Services from "./componants/Service";
+import Whatsapp from "./componants/Whatsapp";
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
       <HowWeWork />
       <Contact />
       <Reviews/>
+      <Whatsapp/>
       <Footer />
     </div>
   );

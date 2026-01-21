@@ -6,7 +6,6 @@ import HowWeWork from "./componants/HowWeWork";
 import Navbar from "./componants/Navbar";
 import Reviews from "./componants/Reviews";
 import Services from "./componants/Service";
-import Whatsapp from "./componants/Whatsapp";
 
 export default function App() {
   return (

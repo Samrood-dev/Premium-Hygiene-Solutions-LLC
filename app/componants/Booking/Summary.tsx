@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { PRICE_PER_HOUR } from "@/utils/constants";
 import MotionContainer from "../MotionContainer/MotionContainer";
 import MotionItem from "../MotionItem/MotionItem";
+import { useState } from "react";
 
 type Props = {
   formData: FormData;
@@ -21,7 +22,8 @@ const serviceNames: Record<ServiceType, string> = {
 const Summary = ({ formData, prevStep }: Props) => {
   const router = useRouter();
 
-  const handleSubmit = async () => {
+  const [isSubmit, setIsSubmit] = useState(false)
+  const sendBooking = async () => {
     const res = await fetch("/api/send-mail", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -32,12 +34,24 @@ const Summary = ({ formData, prevStep }: Props) => {
     });
 
     const result = await res.json();
-    if (result.success) {
-      toast.success("Booking sent successfully!");
-      setTimeout(() => router.push("/"), 2000);
-    } else {
-      toast.error("Failed to send booking");
+    if (!res.ok || !result.success) {
+      throw new Error("Failed to send booking");
     }
+
+    return result;
+  };
+
+  const handleSubmit = async () => {
+    setIsSubmit(true);
+    toast.promise(sendBooking(), {
+      loading: "Sending booking...",
+      success: () => {
+        router.replace("/");
+        return "Booking sent successfully!";
+      },
+      error: "Failed to send booking",
+      finally: () => { setIsSubmit(false) }
+    });
   };
 
   const totalAmount = formData.duration * PRICE_PER_HOUR;
@@ -112,15 +126,15 @@ const Summary = ({ formData, prevStep }: Props) => {
           <div className="flex justify-end gap-4 mt-4">
             <button
               onClick={prevStep}
-              className="px-6 py-3 border rounded-lg inline-flex items-center gap-2 hover:bg-gray-100 transition"
+              disabled={isSubmit}
+              className="px-6 py-3 border rounded-lg cursor-pointer inline-flex items-center gap-2 hover:bg-gray-100 transition"
             >
               <ArrowLeft className="w-4 h-4" />
               Back
             </button>
-
             <button
               onClick={handleSubmit}
-              disabled={!formData.date}
+              disabled={!formData.date || isSubmit}
               className="px-6 py-3 bg-primary cursor-pointer text-white rounded-lg font-semibold hover:bg-primary-dark disabled:opacity-50 transition"
             >
               Confirm & Submit

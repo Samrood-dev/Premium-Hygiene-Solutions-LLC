@@ -1,6 +1,7 @@
 import { PRICE_PER_HOUR } from "@/utils/constants";
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
+import { setTimeout } from "timers/promises";
 
 export async function POST(req: Request) {
   try {
@@ -13,7 +14,12 @@ export async function POST(req: Request) {
       },
     });
     const amount = data.duration * PRICE_PER_HOUR
-
+    const formattedDate = new Date(data.date).toLocaleDateString("en-IN", {
+      day: "2-digit",
+      month: "long",
+      year: "numeric",
+    });
+    
     await transporter.sendMail({
       from: `"Premium Hygiene Solutions LLC" <${process.env.GMAIL_USER}>`,
       to: process.env.CLIENT_EMAIL,
@@ -43,13 +49,13 @@ export async function POST(req: Request) {
               <h3 style="color:#0d6efd;margin-top:20px;">Booked for</h3>
               <table style="width:100%;font-size:14px;">
                 <tr><td><b>Service</b></td><td>${data.service}</td></tr>
-                <tr><td><b>Amount</b></td><td>${amount || "AED 0.00"}</td></tr>
-                <tr><td><b>Duration</b></td><td>${data.duration || "N/A"}</td></tr>
+                <tr><td><b>Amount</b></td><td>AED ${amount}</td></tr>
+                <tr><td><b>Duration</b></td><td>${data.duration} hour</td></tr>
               </table>
       
               <h3 style="color:#0d6efd;margin-top:20px;">Appointment Details:</h3>
               <table style="width:100%;font-size:14px;">
-                <tr><td><b>Date</b></td><td>${data.date}</td></tr>
+                <tr><td><b>Date</b></td><td>${formattedDate}</td></tr>
                 <tr><td><b>Time</b></td><td>${data.time}</td></tr>
               </table>
       

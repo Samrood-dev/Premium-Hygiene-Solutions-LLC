@@ -121,7 +121,7 @@ const Summary = ({ formData, prevStep }: Props) => {
             <button
               onClick={handleSubmit}
               disabled={!formData.date}
-              className="px-6 py-3 bg-primary text-white rounded-lg font-semibold hover:bg-primary-dark disabled:opacity-50 transition"
+              className="px-6 py-3 bg-primary cursor-pointer text-white rounded-lg font-semibold hover:bg-primary-dark disabled:opacity-50 transition"
             >
               Confirm & Submit
             </button>
@@ -129,7 +129,7 @@ const Summary = ({ formData, prevStep }: Props) => {
         </MotionItem>
 
       </div>
-      <Toaster position="top-right" />
+      <Toaster position="bottom-center" />
     </MotionContainer>
   );
 };

@@ -26,7 +26,7 @@ const DateTimeStep = ({ formData, setFormData, nextStep, prevStep, markCompleted
             {/* Date Picker */}
             <MotionItem>
                 <div className="p-4 border border-gray-300 rounded-lg">
-                    <label className="block mb-2 font-medium">Date</label>
+                    <label  className="block mb-2 font-medium">Date</label>
                     <MyDatePicker
                         selected={formData.date}
                         onSelect={(value) => {
@@ -41,9 +41,10 @@ const DateTimeStep = ({ formData, setFormData, nextStep, prevStep, markCompleted
             {/* Time Select */}
             <MotionItem>
                 <div className="p-4 border border-gray-300 rounded-lg">
-                    <label className="block mb-2 font-medium">Service Time</label>
+                    <label htmlFor="time" className="block mb-2 font-medium">Service Time</label>
                     <select
                         value={formData.time}
+                        id="time"
                         onChange={(e) =>
                             setFormData((prev) => ({ ...prev, time: e.target.value }))
                         }
@@ -60,7 +61,7 @@ const DateTimeStep = ({ formData, setFormData, nextStep, prevStep, markCompleted
             {/* Duration Slider */}
             <MotionItem>
                 <div className="p-4 border border-gray-300 rounded-lg">
-                    <label className="block mb-2 font-medium">
+                    <label htmlFor="duration" className="block mb-2 font-medium">
                         Service Duration:
                         <span className="ml-2 text-primary font-semibold">
                             {formData.duration} Hour{formData.duration > 1 ? "s" : ""}
@@ -69,6 +70,7 @@ const DateTimeStep = ({ formData, setFormData, nextStep, prevStep, markCompleted
 
                     <input
                         type="range"
+                        id="duration"
                         min={1}
                         max={8}
                         step={1}

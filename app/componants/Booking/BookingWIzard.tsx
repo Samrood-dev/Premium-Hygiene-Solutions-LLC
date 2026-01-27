@@ -15,7 +15,12 @@ const steps = [
   { id: 4, title: "Summary" },
 ];
 
-export type ServiceType = 'normal' | 'deep' | 'maid' | 'office';
+export type ServiceType =
+  | "home-cleaning"
+  | "ironing"
+  | "baby-sitting"
+  | "deep-cleaning"
+  | "office-cleaning";
 
 export type FormData = {
   name: string;

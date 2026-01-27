@@ -13,11 +13,13 @@ type Props = {
 };
 
 const serviceNames: Record<ServiceType, string> = {
-  normal: 'Normal Cleaning',
-  deep: 'Deep Cleaning',
-  maid: 'Maid Service',
-  office: 'Office Cleaning',
+  "home-cleaning": "Home Cleaning Service",
+  "ironing": "Ironing Service",
+  "baby-sitting": "Baby Sitting",
+  "deep-cleaning": "Deep Cleaning Service",
+  "office-cleaning": "Office Cleaning Service",
 };
+
 
 const Summary = ({ formData, prevStep }: Props) => {
   const router = useRouter();

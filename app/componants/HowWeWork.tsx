@@ -35,7 +35,7 @@ const HowWeWork = () => {
             {/* Cards */}
             <MotionContainer className="grid grid-cols-1 place-items-center md:grid-cols-3 gap-10 max-w-6xl mx-auto px-4">
                 {steps.map((step, index) => (
-                    <MotionItem key={index} className="relative flex justify-center h-44 max-w-72.5">
+                    <MotionItem key={index} className="relative flex justify-center h-44">
                         {/* Number Badge */}
                         <div className="absolute -top-6 left-8 bg-white border-2 text-primary w-16 h-16 rounded-xl flex items-center justify-center text-xl font-bold rotate-[-8deg] z-10">
                             {step.number}

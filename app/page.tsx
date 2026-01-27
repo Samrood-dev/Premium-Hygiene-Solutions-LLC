@@ -6,6 +6,7 @@ import HowWeWork from "./componants/HowWeWork";
 import Navbar from "./componants/Navbar";
 import Reviews from "./componants/Reviews";
 import Services from "./componants/Service";
+import Social from "./componants/Social";
 
 export default function App() {
   return (
@@ -15,6 +16,7 @@ export default function App() {
       <About />
       <Services />
       <HowWeWork />
+      <Social/>
       <Contact />
       <Reviews/>
       <Footer />

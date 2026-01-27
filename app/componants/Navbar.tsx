@@ -3,17 +3,18 @@ import { Menu, X, Sparkles, } from 'lucide-react';
 import { useState } from 'react';
 import MotionContainer from './MotionContainer/MotionContainer';
 import MotionItem from './MotionItem/MotionItem';
+import Image from 'next/image';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <nav className="bg-white shadow-md fixed w-full top-0 z-50">
+        <nav className="bg-white shadow-md fixed w-full top-0 z-50 overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-16">
                     <MotionContainer className="flex items-center">
                         <MotionItem>
-                            <Sparkles className="h-8 w-8 text-primary" />
+                            <Image alt='' src={'/logo.png'} width={100} height={100}    />
                         </MotionItem>
                         <MotionItem>
                             <span className="ml-2 text-md md:text-xl font-bold text-gray-800">Premium Hygiene Solutions LLC</span>

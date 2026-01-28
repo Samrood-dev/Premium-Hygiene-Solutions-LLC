@@ -31,7 +31,7 @@ const ServiceStep = ({ formData, setFormData, nextStep }: Props) => {
   };
 
   return (
-    <MotionContainer className="bg-white p-6 space-y-6 rounded-xl shadow-md">
+    <MotionContainer className="bg-white p-6 space-y-6 border border-gray-300">
       {/* Service Options */}
       {services.map((service) => {
         const isActive = formData.service === service.id;

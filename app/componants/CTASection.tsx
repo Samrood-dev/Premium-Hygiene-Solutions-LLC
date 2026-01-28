@@ -12,7 +12,7 @@ const CTASection = () => {
           </h2>
         </MotionItem>
 
-        <MotionItem className="pt-5">
+        <MotionItem className="hover:animate-pulse pt-5">
           <a
             href="/booking"
             className="bg-white text-primary font-semibold px-6 py-2 rounded-lg shadow-md hover:bg-gray-100 transition"

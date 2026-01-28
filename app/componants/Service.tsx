@@ -48,13 +48,20 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-20 bg-white">
+    <section id="services" className="pb-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <MotionContainer className="text-center mb-12">
+          <MotionItem>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+              Our Services
+            </h2>
+          </MotionItem>
+        </MotionContainer>
 
         <MotionContainer className="grid grid-cols-1 justify-items-center md:grid-cols-3 gap-8 mx-auto">
           {services.map((service, index) => (
-            <MotionItem key={index}  className="w-full max-w-sm">
-              <div onClick={() => router.push("/booking")}className="bg-white rounded-lg shadow-md hover:shadow-xl transition overflow-hidden">
+            <MotionItem key={index} className="w-full max-w-sm">
+              <div onClick={() => router.push("/booking")} className="bg-white rounded-lg shadow-md hover:shadow-xl transition overflow-hidden">
 
                 {/* Image */}
                 <div className="h-40 w-full overflow-hidden">

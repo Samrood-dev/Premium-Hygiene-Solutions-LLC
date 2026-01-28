@@ -21,7 +21,7 @@ export type ServiceType =
   | "baby-sitting"
   | "deep-cleaning"
   | "office-cleaning";
-export type Category = "all" | "no-materials" | "with-materials"
+export type Category =  "without-materials" | "with-materials"
 
 export type FormData = {
   name: string;
@@ -43,7 +43,7 @@ const BookingWizard = () => {
   const [completedSteps, setCompletedSteps] = useState<number[]>([]);
   const [formData, setFormData] = useState<FormData>({
     service: undefined,
-    category: 'all',
+    category: 'without-materials',
     date: new Date(),
     time: "",
     duration: 1,

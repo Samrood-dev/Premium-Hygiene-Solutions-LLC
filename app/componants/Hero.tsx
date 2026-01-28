@@ -5,9 +5,6 @@ import MotionItem from "./MotionItem/MotionItem";
 const Hero = () => {
   return (
     <section
-      // style={{
-      //   background: "linear-gradient(to bottom, #dc2626 60%, #ffffff 50%)",
-      // }}
       className="bg-primary md:bg-[linear-gradient(to_bottom,#dc2626_60%,#ffffff_50%)] text-white py-10">
 
 
@@ -24,12 +21,31 @@ const Hero = () => {
             We provide top-quality cleaning services for homes and offices. Experience the sparkle of a professionally cleaned space.
           </p>
         </MotionItem>
-        {/* Buttons */}
 
-        <MotionItem className="inline-flex items-center bg-white/5 backdrop-blur-lg px-6 rounded-xl mb-4">
-          <span className="text-3xl md:text-3xl font-extrabold text-white tracking-wide">
-            @ 30 AED / HOUR
+        {/* <MotionItem className="inline-flex items-center bg-white px-6 py-3 rounded-lg shadow-2xl mb-4">
+          <span className="text-red-600 text-sm font-semibold mr-2">FROM</span>
+          <span className="text-2xl md:text-3xl font-extrabold text-gray-900">
+            30 AED
           </span>
+          <span className="ml-2 text-sm font-semibold text-gray-600">
+            / HOUR
+          </span>
+        </MotionItem> */}
+
+
+        <MotionItem className="inline-flex relative w-30 h-30 mb-4">
+          {/* Ping effect */}
+          <div className="absolute inset-0 rounded-full bg-white animate-ping opacity-30"></div>
+
+          {/* Main circle */}
+          <div className="relative flex flex-col items-center justify-center w-full h-full rounded-full bg-white shadow-xl">
+            <span className="text-primary text-3xl font-extrabold">
+              30 AED
+            </span>
+            <span className="text-primary text-sm font-semibold tracking-widest">
+              / HOUR
+            </span>
+          </div>
         </MotionItem>
 
         <MotionItem className="flex flex-col md:flex-row justify-center gap-4 mb-12">
@@ -54,7 +70,6 @@ const Hero = () => {
             alt="Cleaning Service"
             className="w-full h-auto object-cover"
           />
-   
         </div>
       </MotionContainer>
 

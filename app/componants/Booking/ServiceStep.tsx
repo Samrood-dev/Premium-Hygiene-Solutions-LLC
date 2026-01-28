@@ -25,7 +25,6 @@ const services: Service[] = [
 ];
 
 const categories = [
-  { id: "all", label: "ALL" },
   { id: "with-materials", label: "With materials" },
   { id: "without-materials", label: "Without materials" },
 ];
@@ -67,7 +66,7 @@ const ServiceStep = ({ formData, setFormData, nextStep }: Props) => {
       <div className="max-h-[43vh] overflow-scroll space-y-6">
         {services.map((service) => {
           const isActive = formData.service === service.id;
-          const price = formData.category === 'no-materials' ? 30 : 35
+          const price = formData.category === 'without-materials' ? 30 : 35
 
           return (
             <MotionItem key={service.id}>

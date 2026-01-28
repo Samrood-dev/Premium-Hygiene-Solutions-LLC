@@ -9,7 +9,7 @@ type Props = {
   setFormData: (params: BasicDetailsType) => void
   nextStep: () => void;
   prevStep: () => void;
-  markCompleted: (params: number)=> void;
+  markCompleted: (params: number) => void;
 }
 
 type FormErrors = Partial<Record<keyof BasicDetailsType, string>>;
@@ -20,6 +20,14 @@ const BasicDetails = ({ formData, setFormData, nextStep, prevStep, markCompleted
 
   const handleChange = (e: any) => {
     const { name, value } = e.target;
+
+    if (name === "phone") {
+      const numericValue = value.replace(/\D/g, ""); 
+      setFormData({ ...formData, phone: numericValue });
+      if (errors.phone) setErrors({ ...errors, phone: "" });
+      return;
+    }
+
     setFormData({ ...formData, [name]: value });
 
     if (errors[name as keyof BasicDetailsType]) {
@@ -32,7 +40,12 @@ const BasicDetails = ({ formData, setFormData, nextStep, prevStep, markCompleted
     if (!formData.name.trim()) newErrors.name = 'Name is required';
     if (!formData.email.trim()) newErrors.email = 'Email is required';
     else if (!/\S+@\S+\.\S+/.test(formData.email)) newErrors.email = 'Email is invalid';
-    if (!formData.phone.trim()) newErrors.phone = 'Phone is required';
+    if (!formData.phone.trim()) {
+      newErrors.phone = "Phone number is required";
+    } else if (!/^\d{10}$/.test(formData.phone)) {
+      newErrors.phone = "Phone number must be exactly 10 digits";
+    }
+
     if (!formData.address.trim()) newErrors.address = 'Address is required';
     return newErrors;
   };
@@ -82,13 +95,16 @@ const BasicDetails = ({ formData, setFormData, nextStep, prevStep, markCompleted
 
           <MotionItem>
             <label className="block text-gray-700 font-medium mb-2">Phone number *</label>
-            <input
-              type="text"
-              name="phone"
-              value={formData.phone}
-              onChange={handleChange}
-              className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary ${errors.phone ? 'border-red-500' : 'border-gray-300'}`}
-            />
+              <input
+                type="tel"
+                name="phone"
+                maxLength={10}
+                inputMode="numeric"
+                pattern="[0-9]*"
+                value={formData.phone}
+                onChange={handleChange}
+                className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary ${errors.phone ? 'border-red-500' : 'border-gray-300'}`}
+              />
             {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
           </MotionItem>
 

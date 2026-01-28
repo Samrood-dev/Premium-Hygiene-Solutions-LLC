@@ -5,19 +5,16 @@ import MotionItem from "./MotionItem/MotionItem";
 const aboutData = [
   {
     title: "Our Mission",
-    titleClass: "text-3xl",
     description:
       "To provide exceptional cleaning services that exceed our clients' expectations while maintaining the highest standards of professionalism and environmental responsibility.",
   },
   {
     title: "Our Vision",
-    titleClass: "text-2xl",
     description:
       "To be the most trusted and preferred cleaning service provider, known for our reliability, quality, and customer satisfaction.",
   },
   {
     title: "Experience",
-    titleClass: "text-2xl",
     description:
       "With over 10 years of experience in the cleaning industry, we have served thousands of satisfied customers across the region.",
   },
@@ -46,7 +43,7 @@ const About = () => {
                 <div key={index}>
                   <MotionItem>
                     <h3
-                      className={`${item.titleClass} font-semibold text-gray-900 mb-4`}
+                      className={`text-3xl font-semibold text-gray-900 mb-4`}
                     >
                       {item.title}
                     </h3>

@@ -2,6 +2,27 @@ import { CheckCircle } from "lucide-react";
 import MotionContainer from "./MotionContainer/MotionContainer";
 import MotionItem from "./MotionItem/MotionItem";
 
+const aboutData = [
+  {
+    title: "Our Mission",
+    titleClass: "text-3xl",
+    description:
+      "To provide exceptional cleaning services that exceed our clients' expectations while maintaining the highest standards of professionalism and environmental responsibility.",
+  },
+  {
+    title: "Our Vision",
+    titleClass: "text-2xl",
+    description:
+      "To be the most trusted and preferred cleaning service provider, known for our reliability, quality, and customer satisfaction.",
+  },
+  {
+    title: "Experience",
+    titleClass: "text-2xl",
+    description:
+      "With over 10 years of experience in the cleaning industry, we have served thousands of satisfied customers across the region.",
+  },
+];
+
 // About Section
 const About = () => {
   return (
@@ -11,61 +32,40 @@ const About = () => {
         {/* Heading */}
         <MotionContainer className="text-center mb-12">
           <MotionItem>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
               About Premium Hygiene Solutions LLC
             </h2>
           </MotionItem>
         </MotionContainer>
 
         <MotionContainer className="grid md:grid-cols-2 gap-12 items-center">
-          
+
           {/* Left Content */}
           <MotionItem>
-            <div>
-              <MotionItem>
-                <h3 className="text-2xl font-semibold text-gray-900 mb-4">
-                  Our Mission
-                </h3>
-              </MotionItem>
-              <MotionItem>
-                <p className="text-gray-600 mb-6">
-                  To provide exceptional cleaning services that exceed our clients'
-                  expectations while maintaining the highest standards of professionalism
-                  and environmental responsibility.
-                </p>
-              </MotionItem>
+              {aboutData.map((item, index) => (
+                <div key={index}>
+                  <MotionItem>
+                    <h3
+                      className={`${item.titleClass} font-semibold text-gray-900 mb-4`}
+                    >
+                      {item.title}
+                    </h3>
+                  </MotionItem>
 
-              <MotionItem>
-                <h3 className="text-2xl font-semibold text-gray-900 mb-4">
-                  Our Vision
-                </h3>
-              </MotionItem>
-              <MotionItem>
-                <p className="text-gray-600 mb-6">
-                  To be the most trusted and preferred cleaning service provider, known
-                  for our reliability, quality, and customer satisfaction.
-                </p>
-              </MotionItem>
-
-              <MotionItem>
-                <h3 className="text-2xl font-semibold text-gray-900 mb-4">
-                  Experience
-                </h3>
-              </MotionItem>
-              <MotionItem>
-                <p className="text-gray-600">
-                  With over 10 years of experience in the cleaning industry, we have
-                  served thousands of satisfied customers across the region.
-                </p>
-              </MotionItem>
-            </div>
+                  <MotionItem>
+                    <p className="text-gray-600 mb-6 text-lg">
+                      {item.description}
+                    </p>
+                  </MotionItem>
+                </div>
+              ))}
           </MotionItem>
 
           {/* Right Content */}
           <MotionItem>
             <div className="bg-blue-50 p-8 rounded-lg">
               <MotionItem>
-                <h3 className="text-2xl font-semibold text-gray-900 mb-6">
+                <h3 className="text-3xl font-semibold text-gray-900 mb-6">
                   Why Choose Us?
                 </h3>
               </MotionItem>
@@ -80,8 +80,8 @@ const About = () => {
                 ].map((item, index) => (
                   <MotionItem key={index}>
                     <li className="flex items-start list-none">
-                      <CheckCircle className="h-6 w-6 text-primary mr-3 flex-shrink-0 mt-0.5" />
-                      <span className="text-gray-700">{item}</span>
+                      <CheckCircle className="h-6 w-6 text-primary mr-3 shrink-0 mt-0.5" />
+                      <span className="text-gray-700 text-xl">{item}</span>
                     </li>
                   </MotionItem>
                 ))}

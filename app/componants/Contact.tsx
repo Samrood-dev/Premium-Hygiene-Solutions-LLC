@@ -119,8 +119,8 @@ const Contact = () => {
           {/* Heading */}
           <MotionContainer className="text-center mb-12">
             <MotionItem>
-              <h5>REACH OUT TO US</h5>
-              <h1 className="text-4xl md:text-4xl font-bold text-gray-900">
+              <h4>REACH OUT TO US</h4>
+              <h1 className="text-4xl md:text-5xl font-bold text-gray-900">
                 Contact Us
               </h1>
             </MotionItem>
@@ -132,7 +132,7 @@ const Contact = () => {
             <MotionItem>
               <div>
                 <MotionItem>
-                  <h3 className="text-2xl font-semibold text-gray-900 mb-6">
+                  <h3 className="text-3xl font-semibold text-gray-900 mb-6">
                     Get in Touch
                   </h3>
                 </MotionItem>
@@ -172,7 +172,7 @@ const Contact = () => {
                   ].map((field, index) => (
                     <MotionItem key={index}>
                       <div>
-                        <label className="block text-gray-700 font-medium mb-2">
+                        <label className="block text-gray-700 text-2xl font-medium mb-2">
                           {field.label}
                         </label>
                         <input
@@ -194,7 +194,7 @@ const Contact = () => {
 
                   <MotionItem>
                     <div>
-                      <label className="block text-gray-700 font-medium mb-2">
+                      <label className="block text-gray-700 text-2xl font-medium mb-2">
                         Message *
                       </label>
                       <textarea
@@ -217,7 +217,7 @@ const Contact = () => {
                     <button
                       type="submit"
                       disabled={success}
-                      className="w-full bg-primary cursor-pointer text-white py-3 rounded-lg font-semibold hover:bg-primary-dark transition"
+                      className="w-full text-2xl bg-primary cursor-pointer text-white py-3 rounded-lg font-semibold hover:bg-primary-dark transition"
                     >
                       Send Message
                     </button>
@@ -230,7 +230,7 @@ const Contact = () => {
             <MotionItem>
               <div>
                 <MotionItem>
-                  <h3 className="text-2xl font-semibold text-gray-900 mb-6">
+                  <h3 className="text-3xl font-semibold text-gray-900 mb-6">
                     Contact Information
                   </h3>
                 </MotionItem>
@@ -241,10 +241,10 @@ const Contact = () => {
                       <div className="flex items-start">
                         {item.icon}
                         <div>
-                          <h4 className="font-semibold text-gray-900 mb-1">
+                          <h4 className="font-semibold text-2xl text-gray-900 mb-1">
                             {item.title}
                           </h4>
-                          <p className="text-gray-600">{item.value}</p>
+                          <p className="text-gray-600 text-xl">{item.value}</p>
                         </div>
                       </div>
                     </MotionItem>

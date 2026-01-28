@@ -11,13 +11,13 @@ const Hero = () => {
       <MotionContainer className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <MotionItem>
 
-          <h1 className="text-3xl md:text-5xl font-extrabold mb-4">
+          <h1 className="text-4xl md:text-5xl font-extrabold mb-4">
             Professional Cleaning Services
           </h1>
         </MotionItem>
 
         <MotionItem>
-          <p className="text-md font-semibold md:text-lg mb-3 max-w-2xl mx-auto">
+          <p className="text-lg font-semibold md:text-lg mb-3 max-w-2xl mx-auto">
             We provide top-quality cleaning services for homes and offices. Experience the sparkle of a professionally cleaned space.
           </p>
         </MotionItem>
@@ -51,14 +51,14 @@ const Hero = () => {
         <MotionItem className="flex flex-col md:flex-row justify-center gap-4 mb-12">
           <a
             href="/booking"
-            className="border  font-semibold px-6 py-3 rounded-full hover:bg-white hover:text-primary-dark transition"
+            className="border text-2xl font-semibold px-6 py-3 rounded-full hover:bg-white hover:text-primary-dark transition"
 
           >
             Book A Cleaning Now
           </a>
           <a
             href="tel:3033094226"
-            className="border  font-semibold px-6 py-3 rounded-full hover:bg-white hover:text-primary-dark transition"
+            className="border text-2xl font-semibold px-6 py-3 rounded-full hover:bg-white hover:text-primary-dark transition"
           >
             {companyData.phone}
           </a>

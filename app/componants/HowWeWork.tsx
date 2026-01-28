@@ -21,7 +21,7 @@ const HowWeWork = () => {
     ];
 
     return (
-        <section className="py-20 text-center bg-gray-50">
+        <section className="py-10 text-center bg-gray-50">
             {/* Heading */}
             <MotionContainer>
                 <MotionItem>

@@ -2,6 +2,7 @@ import { Sparkles, Phone, Mail, MapPin } from "lucide-react";
 import MotionContainer from "./MotionContainer/MotionContainer";
 import MotionItem from "./MotionItem/MotionItem";
 import { companyData } from "@/utils/constants";
+import Image from "next/image";
 
 const Footer = () => {
   return (
@@ -14,12 +15,12 @@ const Footer = () => {
           <MotionItem>
             <div>
               <div className="flex items-center mb-4">
-                <Sparkles className="h-8 w-8 text-blue-400" />
-                <span className="ml-2 text-xl font-bold">
-                  Premium Hygiene Solutions
+                <Image className="-ml-18" src={'/logo.png'} width={200} height={200} alt=""/>
+                <span className="-ml-10 text-xl font-bold">
+                  Premium Hygiene <br/>Solutions
                 </span>
               </div>
-              <p className="text-gray-400">
+              <p className="text-gray-400 -mt-6">
                 Professional cleaning services you can trust. Making your space
                 sparkle with care and perfection.
               </p>

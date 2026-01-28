@@ -11,13 +11,13 @@ const Navbar = () => {
     return (
         <nav className="bg-white shadow-md fixed w-full top-0 z-50 ">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex justify-between items-center h-16">
+                <div className="flex justify-between items-center h-20">
                     <MotionContainer className="flex items-center">
                         <MotionItem>
-                            <Image alt='' src={'/logo.png'} width={100} height={100}    />
+                            <Image className='-ml-10 ' alt='' src={'/logo.png'} width={200} height={200} />
                         </MotionItem>
                         <MotionItem>
-                            <span className="text-md md:text-xl font-bold text-gray-800">Premium Hygiene Solutions LLC</span>
+                            <span className="-ml-20 text-md md:text-2xl font-bold text-gray-800">Premium Hygiene Solutions LLC</span>
                         </MotionItem>
                     </MotionContainer>
 

@@ -7,7 +7,7 @@ const CTASection = () => {
       <MotionContainer className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center text-white">
 
         <MotionItem>
-          <h2 className="text-center text-xl md:text-2xl font-bold">
+          <h2 className="text-center text-2xl md:text-4xl font-bold">
             REACH OUT TO US TODAY TO BOOK A SERVICE
           </h2>
         </MotionItem>

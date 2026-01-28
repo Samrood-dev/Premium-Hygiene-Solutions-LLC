@@ -1,16 +1,13 @@
 "use client"
-import { Briefcase, Building, Home, Sparkles } from "lucide-react";
 import MotionContainer from "./MotionContainer/MotionContainer";
 import MotionItem from "./MotionItem/MotionItem";
 import { useRouter } from "next/navigation";
 
-// Services Section
 const Services = () => {
   const router = useRouter();
 
   const services = [
     {
-      icon: <Home className="h-10 w-10 text-primary" />,
       title: "Home Cleaning Service",
       image: "/services/home-cleaning.jpg",
       className: 'object-bottom',
@@ -18,28 +15,24 @@ const Services = () => {
         "Complete home cleaning including dusting, mopping, vacuuming, and sanitizing for a fresh living space.",
     },
     {
-      icon: <Sparkles className="h-10 w-10 text-primary" />,
       title: "Ironing Service",
       image: "/services/ironing.jpg",
       description:
         "Professional ironing service to keep your clothes crisp, neat, and wrinkle-free.",
     },
     {
-      icon: <Briefcase className="h-10 w-10 text-primary" />,
       title: "Baby Sitting",
       image: "/services/baby-sitting.jpg",
       description:
         "Safe and caring babysitting service to ensure your child is happy, secure, and well cared for.",
     },
     {
-      icon: <Sparkles className="h-10 w-10 text-primary" />,
       title: "Deep Cleaning Service",
       image: "/services/deep-cleaning.jpg",
       description:
         "Intensive deep cleaning for hard-to-reach areas, removing stubborn dirt and bacteria.",
     },
     {
-      icon: <Building className="h-10 w-10 text-primary" />,
       title: "Office Cleaning Service",
       image: "/services/office-cleaning.jpg",
       description:
@@ -52,7 +45,7 @@ const Services = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <MotionContainer className="text-center mb-12">
           <MotionItem>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
               Our Services
             </h2>
           </MotionItem>
@@ -63,7 +56,6 @@ const Services = () => {
             <MotionItem key={index} className="w-full max-w-sm">
               <div onClick={() => router.push("/booking")} className="bg-white rounded-lg shadow-md hover:shadow-xl transition overflow-hidden">
 
-                {/* Image */}
                 <div className="h-40 w-full overflow-hidden">
                   <img
                     src={service.image}
@@ -72,15 +64,12 @@ const Services = () => {
                   />
                 </div>
 
-                {/* Content */}
-                <div className="p-6 text-center">
-                  <div className="mb-3 flex justify-center">{service.icon}</div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                <div className="p-6 text-center h-56">
+                  <h3 className="text-3xl font-semibold text-gray-900 mb-2">
                     {service.title}
                   </h3>
-                  <p className="text-gray-600 text-sm">{service.description}</p>
+                  <p className="text-gray-600 text-lg">{service.description}</p>
                 </div>
-
               </div>
             </MotionItem>
           ))}

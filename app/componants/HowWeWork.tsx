@@ -25,8 +25,7 @@ const HowWeWork = () => {
             {/* Heading */}
             <MotionContainer>
                 <MotionItem>
-
-                    <h2 className="text-4xl font-bold mb-20">
+                    <h2 className="text-4xl md:text-5xl font-bold mb-20">
                         How we work
                     </h2>
                 </MotionItem>
@@ -35,16 +34,16 @@ const HowWeWork = () => {
             {/* Cards */}
             <MotionContainer className="grid grid-cols-1 place-items-center md:grid-cols-3 gap-10 max-w-6xl mx-auto px-4">
                 {steps.map((step, index) => (
-                    <MotionItem key={index} className="relative flex justify-center h-44">
+                    <MotionItem key={index} className="relative flex justify-center h-48">
                         {/* Number Badge */}
-                        <div className="absolute -top-6 left-8 bg-white border-2 text-primary w-16 h-16 rounded-xl flex items-center justify-center text-xl font-bold rotate-[-8deg] z-10">
+                        <div className="absolute -top-6 left-8 bg-white border-2 text-primary w-16 h-16 rounded-xl flex items-center justify-center text-4xl font-bold rotate-[-8deg] z-10">
                             {step.number}
                         </div>
 
                         {/* Card */}
                         <div className="bg-primary text-white rounded-2xl p-8 pt-12 w-full max-w-sm shadow-lg">
-                            <h3 className="text-2xl font-bold mb-4">{step.title}</h3>
-                            <p className="text-sm opacity-90">{step.desc}</p>
+                            <h3 className="text-4xl font-bold mb-4">{step.title}</h3>
+                            <p className="text-lg opacity-90">{step.desc}</p>
 
                         </div>
                     </MotionItem>

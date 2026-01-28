@@ -8,19 +8,17 @@ const Footer = () => {
   return (
     <footer className="bg-gray-900 text-white py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
         <MotionContainer className="grid md:grid-cols-3 gap-8">
-
           {/* Brand */}
           <MotionItem>
             <div>
               <div className="flex items-center mb-4">
-                <Image className="-ml-18" src={'/logo.png'} width={200} height={200} alt=""/>
-                <span className="-ml-10 text-xl font-bold">
-                  Premium Hygiene <br/>Solutions
+                <Image className="-ml-18" src={'/logo.png'} width={250} height={250} alt=""/>
+                <span className="-ml-14 text-2xl font-bold">
+                  Premium Hygiene <br/>Solutions LLC
                 </span>
               </div>
-              <p className="text-gray-400 -mt-6">
+              <p className="text-gray-400 text-xl -mt-6">
                 Professional cleaning services you can trust. Making your space
                 sparkle with care and perfection.
               </p>
@@ -30,7 +28,7 @@ const Footer = () => {
           {/* Quick Links */}
           <MotionItem>
             <div>
-              <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
+              <h4 className="text-xl font-semibold mb-4">Quick Links</h4>
               <ul className="space-y-2">
                 {[
                   { name: "Home", href: "#home" },
@@ -42,7 +40,7 @@ const Footer = () => {
                     <li>
                       <a
                         href={link.href}
-                        className="text-gray-400 hover:text-white transition"
+                        className="text-gray-400 text-lg hover:text-white transition"
                       >
                         {link.name}
                       </a>
@@ -56,17 +54,17 @@ const Footer = () => {
           {/* Contact Info */}
           <MotionItem>
             <div>
-              <h4 className="text-lg font-semibold mb-4">Contact</h4>
+              <h4 className="text-xl font-semibold mb-4">Contact</h4>
               <ul className="space-y-3 text-gray-400">
-                <li className="flex items-start gap-2">
+                <li className="flex items-start gap-2 text-lg">
                   <Phone className="h-5 w-5 text-primary" />
                   {companyData.phone}
                 </li>
-                <li className="flex items-start gap-2">
+                <li className="flex items-start gap-2 text-lg">
                   <Mail className="h-5 w-5 text-primary" />
                   {companyData.email}
                 </li>
-                <li className="flex items-start gap-2">
+                <li className="flex items-start gap-2 text-lg">
                   <MapPin className="h-5 w-5 text-primary" />
                   {companyData.address}
                 </li>

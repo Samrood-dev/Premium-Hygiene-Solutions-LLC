@@ -17,7 +17,7 @@ const Navbar = () => {
                             <Image alt='' src={'/logo.png'} width={100} height={100}    />
                         </MotionItem>
                         <MotionItem>
-                            <span className="ml-2 text-md md:text-xl font-bold text-gray-800">Premium Hygiene Solutions LLC</span>
+                            <span className="text-md md:text-xl font-bold text-gray-800">Premium Hygiene Solutions LLC</span>
                         </MotionItem>
                     </MotionContainer>
 
@@ -64,7 +64,7 @@ const Navbar = () => {
 
                             <a href="/#contact" className="block px-3 py-2 text-gray-700 hover:bg-blue-50">Contact</a>
                         </MotionItem>
-                        <MotionItem>
+                        <MotionItem className='px-3 py-2'>
                             <a href="/booking" className="px-3 py-2 font-bold text-white rounded-md bg-primary hover:bg-primary-dark hover:text-white whitespace-nowrap transition">Book Now</a>
                         </MotionItem>
                     </MotionContainer>

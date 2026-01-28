@@ -1,9 +1,13 @@
+"use client"
 import { Briefcase, Building, Home, Sparkles } from "lucide-react";
 import MotionContainer from "./MotionContainer/MotionContainer";
 import MotionItem from "./MotionItem/MotionItem";
+import { useRouter } from "next/navigation";
 
 // Services Section
 const Services = () => {
+  const router = useRouter();
+
   const services = [
     {
       icon: <Home className="h-10 w-10 text-primary" />,
@@ -49,8 +53,8 @@ const Services = () => {
 
         <MotionContainer className="grid grid-cols-1 justify-items-center md:grid-cols-3 gap-8 mx-auto">
           {services.map((service, index) => (
-            <MotionItem key={index} className="w-full max-w-sm">
-              <div className="bg-white rounded-lg shadow-md hover:shadow-xl transition overflow-hidden">
+            <MotionItem key={index}  className="w-full max-w-sm">
+              <div onClick={() => router.push("/booking")}className="bg-white rounded-lg shadow-md hover:shadow-xl transition overflow-hidden">
 
                 {/* Image */}
                 <div className="h-40 w-full overflow-hidden">

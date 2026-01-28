@@ -1,6 +1,7 @@
 import { Star } from "lucide-react";
 import MotionContainer from "./MotionContainer/MotionContainer";
 import MotionItem from "./MotionItem/MotionItem";
+import TriangleArrow from "./TriangleArrow";
 
 const Reviews = () => {
   const reviews = [
@@ -77,40 +78,42 @@ const Reviews = () => {
     ));
 
   return (
-    <section id="reviews" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="reviews" className=" bg-white">
+      <TriangleArrow />
+      <div className="py-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* Heading */}
-        <MotionContainer className="text-center mb-12">
-          <MotionItem>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              What Our Clients Say
-            </h2>
-          </MotionItem>
-          <MotionItem>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Don't just take our word for it. Here's what our customers say.
-            </p>
-          </MotionItem>
-        </MotionContainer>
-
-        {/* Stats */}
-        <MotionContainer className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-16">
-          {stats.map((stat, index) => (
-            <MotionItem key={index}>
-              <div className="text-center p-6 bg-blue-50 rounded-lg">
-                <div className="text-3xl md:text-4xl font-bold text-primary mb-2">
-                  {stat.number}
-                </div>
-                <div className="text-gray-600">{stat.label}</div>
-              </div>
+          {/* Heading */}
+          <MotionContainer className="text-center mb-12">
+            <MotionItem>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                What Our Clients Say
+              </h2>
             </MotionItem>
-          ))}
-        </MotionContainer>
+            <MotionItem>
+              <p className="text-gray-600 max-w-2xl mx-auto">
+                Don't just take our word for it. Here's what our customers say.
+              </p>
+            </MotionItem>
+          </MotionContainer>
 
-        {/* Reviews */}
-        <MotionContainer className="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide">
-          {reviews.map((review, index) => (
+          {/* Stats */}
+          <MotionContainer className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-16">
+            {stats.map((stat, index) => (
+              <MotionItem key={index}>
+                <div className="text-center p-6 bg-blue-50 rounded-lg">
+                  <div className="text-3xl md:text-4xl font-bold text-primary mb-2">
+                    {stat.number}
+                  </div>
+                  <div className="text-gray-600">{stat.label}</div>
+                </div>
+              </MotionItem>
+            ))}
+          </MotionContainer>
+
+          {/* Reviews */}
+          <MotionContainer className="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide">
+            {reviews.map((review, index) => (
               <MotionItem key={index} className="min-w-70 max-w-[320px] h-72 bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-xl transition snap-center">
                 <div className="flex items-center mb-4">
                   <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-semibold text-lg mr-4">
@@ -136,32 +139,33 @@ const Reviews = () => {
                   {review.review}
                 </p>
               </MotionItem>
-          ))}
-        </MotionContainer>
+            ))}
+          </MotionContainer>
 
-        {/* CTA */}
-        <MotionContainer className="mt-16">
-          <div className="text-center bg-gradient-to-r from-primary to-primary-dark rounded-lg p-12">
-            <MotionItem>
-              <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
-                Ready to Experience the Difference?
-              </h3>
-            </MotionItem>
-            <MotionItem>
-              <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-                Join hundreds of satisfied customers who trust PremiumHygiene.
-              </p>
-            </MotionItem>
-            <MotionItem>
-              <a
-                href="/booking"
-                className="inline-block bg-white text-primary px-8 py-3 rounded-lg text-lg font-semibold hover:bg-gray-100 transition"
-              >
-                Book Your Cleaning Today
-              </a>
-            </MotionItem>
-          </div>
-        </MotionContainer>
+          {/* CTA */}
+          <MotionContainer className="mt-16">
+            <div className="text-center bg-gradient-to-r from-primary to-primary-dark rounded-lg p-12">
+              <MotionItem>
+                <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+                  Ready to Experience the Difference?
+                </h3>
+              </MotionItem>
+              <MotionItem>
+                <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
+                  Join hundreds of satisfied customers who trust PremiumHygiene.
+                </p>
+              </MotionItem>
+              <MotionItem>
+                <a
+                  href="/booking"
+                  className="inline-block bg-white text-primary px-8 py-3 rounded-lg text-lg font-semibold hover:bg-gray-100 transition"
+                >
+                  Book Your Cleaning Today
+                </a>
+              </MotionItem>
+            </div>
+          </MotionContainer>
+        </div>
       </div>
     </section>
   );

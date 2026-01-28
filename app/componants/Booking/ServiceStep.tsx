@@ -13,22 +13,21 @@ type Service = {
   id: ServiceType;
   title: string;
   duration: string;
-  price: string;
   image: string;
 };
 
 const services: Service[] = [
-  { id: "home-cleaning", title: "Home Cleaning Service", duration: "1h", price: "AED 30.00", image: "/services/home-cleaning.jpg" },
-  { id: "ironing", title: "Ironing Service", duration: "1h", price: "AED 30.00", image: "/services/ironing.jpg" },
-  { id: "baby-sitting", title: "Baby Sitting", duration: "1h", price: "AED 30.00", image: "/services/baby-sitting.jpg" },
-  { id: "deep-cleaning", title: "Deep Cleaning Service", duration: "1h", price: "AED 30.00", image: "/services/deep-cleaning.jpg" },
-  { id: "office-cleaning", title: "Office Cleaning Service", duration: "1h", price: "AED 30.00", image: "/services/office-cleaning.jpg" },
+  { id: "home-cleaning", title: "Home Cleaning Service", duration: "1h", image: "/services/home-cleaning.jpg" },
+  { id: "ironing", title: "Ironing Service", duration: "1h", image: "/services/ironing.jpg" },
+  { id: "baby-sitting", title: "Baby Sitting", duration: "1h", image: "/services/baby-sitting.jpg" },
+  { id: "deep-cleaning", title: "Deep Cleaning Service", duration: "1h", image: "/services/deep-cleaning.jpg" },
+  { id: "office-cleaning", title: "Office Cleaning Service", duration: "1h", image: "/services/office-cleaning.jpg" },
 ];
 
 const categories = [
   { id: "all", label: "ALL" },
   { id: "with-materials", label: "With materials" },
-  { id: "no-materials", label: "No materials" },
+  { id: "without-materials", label: "Without materials" },
 ];
 
 const ServiceStep = ({ formData, setFormData, nextStep }: Props) => {
@@ -68,6 +67,8 @@ const ServiceStep = ({ formData, setFormData, nextStep }: Props) => {
       <div className="max-h-[43vh] overflow-scroll space-y-6">
         {services.map((service) => {
           const isActive = formData.service === service.id;
+          const price = formData.category === 'no-materials' ? 30 : 35
+
           return (
             <MotionItem key={service.id}>
               <div
@@ -92,8 +93,8 @@ const ServiceStep = ({ formData, setFormData, nextStep }: Props) => {
                   <div>
                     <h3 className="text-lg font-semibold">{service.title}</h3>
                     <p className="text-sm text-gray-500">Duration: {service.duration}</p>
-                    <p className="text-sm font-medium text-gray-700">Price: {service.price}</p>
-                  </div>
+                    <p className="text-sm font-medium text-gray-700">Price: AED {price}.00</p>
+                  </div>  
                   {isActive && <CheckCircle className="text-primary w-6 h-6 mt-1" />}
                 </div>
               </div>

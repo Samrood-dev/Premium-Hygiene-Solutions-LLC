@@ -20,12 +20,17 @@ const Hero = () => {
         </MotionItem>
 
         <MotionItem>
-          <p className="text-md font-semibold md:text-lg mb-6 max-w-2xl mx-auto">
+          <p className="text-md font-semibold md:text-lg mb-3 max-w-2xl mx-auto">
             We provide top-quality cleaning services for homes and offices. Experience the sparkle of a professionally cleaned space.
           </p>
         </MotionItem>
         {/* Buttons */}
 
+        <MotionItem className="inline-flex items-center bg-white/5 backdrop-blur-lg px-6 rounded-xl mb-4">
+          <span className="text-3xl md:text-3xl font-extrabold text-white tracking-wide">
+            @ 30 AED / HOUR
+          </span>
+        </MotionItem>
 
         <MotionItem className="flex flex-col md:flex-row justify-center gap-4 mb-12">
           <a
@@ -43,19 +48,13 @@ const Hero = () => {
           </a>
         </MotionItem>
 
-        {/* Image / Video */}
-        <div className="hidden md:block w-full max-w-5xl max-h-[70vh] mx-auto overflow-hidden rounded-3xl shadow-2xl relative">
+        <div className="w-full max-w-5xl max-h-[70vh] mx-auto overflow-hidden rounded-3xl shadow-2xl relative">
           <img
             src="/hero-bg.jpg"
             alt="Cleaning Service"
             className="w-full h-auto object-cover"
           />
-          {/* Optional: Play button overlay */}
-          {/* <div className="absolute inset-0 flex justify-center items-center">
-            <button className="bg-white/80 text-red-900 rounded-full w-16 h-16 flex items-center justify-center text-2xl hover:scale-110 transition">
-              ►
-            </button>
-          </div> */}
+   
         </div>
       </MotionContainer>
 

@@ -5,10 +5,10 @@ import MotionItem from "./MotionItem/MotionItem";
 const Hero = () => {
   return (
     <section
-      style={{
-        background: "linear-gradient(to bottom, #dc2626 60%, #ffffff 50%)",
-      }}
-      className="bg-primary text-white py-10">
+      // style={{
+      //   background: "linear-gradient(to bottom, #dc2626 60%, #ffffff 50%)",
+      // }}
+      className="bg-primary md:bg-[linear-gradient(to_bottom,#dc2626_60%,#ffffff_50%)] text-white py-10">
 
 
       <MotionContainer className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -44,18 +44,18 @@ const Hero = () => {
         </MotionItem>
 
         {/* Image / Video */}
-        <div className="w-full max-w-5xl max-h-[70vh] mx-auto overflow-hidden rounded-3xl shadow-2xl relative">
+        <div className="hidden md:block w-full max-w-5xl max-h-[70vh] mx-auto overflow-hidden rounded-3xl shadow-2xl relative">
           <img
             src="/hero-bg.jpg"
             alt="Cleaning Service"
             className="w-full h-auto object-cover"
           />
           {/* Optional: Play button overlay */}
-          <div className="absolute inset-0 flex justify-center items-center">
+          {/* <div className="absolute inset-0 flex justify-center items-center">
             <button className="bg-white/80 text-red-900 rounded-full w-16 h-16 flex items-center justify-center text-2xl hover:scale-110 transition">
               ►
             </button>
-          </div>
+          </div> */}
         </div>
       </MotionContainer>
 

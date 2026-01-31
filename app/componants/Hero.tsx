@@ -18,11 +18,12 @@ const Hero = () => {
 
         <MotionItem>
           <p className="text-lg font-semibold md:text-lg mb-3 max-w-2xl mx-auto">
-            Serving homes and offices across Dubai, including Silicon Oasis, Downtown, and Business Bay. Our professional cleaning team ensures every corner shines.
+          Serving homes and offices across Dubai, including Liwan Mazaya, International City, Warsan, and Dubai Land. Our professional cleaning team ensures every corner shines.
           </p>
         </MotionItem>
 
-        {/* <MotionItem className="inline-flex items-center bg-white px-6 py-3 rounded-lg shadow-2xl mb-4">
+        {/* <MotionItem className=" relative inline-flex items-center bg-white px-6 py-3 rounded-lg shadow-2xl mb-4">
+        <div className="absolute inset-0 rounded-full bg-white animate-ping opacity-30"></div>
           <span className="text-red-600 text-sm font-semibold mr-2">FROM</span>
           <span className="text-2xl md:text-3xl font-extrabold text-gray-900">
             30 AED
@@ -33,9 +34,7 @@ const Hero = () => {
         </MotionItem> */}
 
         <MotionItem className="inline-flex relative w-30 h-30 mb-4">
-          {/* Ping effect */}
           <div className="absolute inset-0 rounded-full bg-white animate-ping opacity-30"></div>
-          {/* Main circle */}
           <div className="relative flex flex-col items-center justify-center w-full h-full rounded-full bg-white shadow-xl">
             <span className="text-primary text-3xl font-extrabold">
               30 AED

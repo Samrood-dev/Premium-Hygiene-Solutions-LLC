@@ -103,31 +103,31 @@ const BookingWizard = () => {
             {steps.map((s) => {
               const isActive = step === s.id;
               const isUnlocked = s.id === 1 || completedSteps.includes(s.id - 1);
+
               return (
                 <MotionItem key={s.id}>
                   <div
                     onClick={() => isUnlocked && goToStep(s.id)}
                     className={`
-              p-4 rounded-xl border transition-all
-              ${isActive
-                        ? "bg-primary text-white border-primary shadow-md"
-                        : ""
-                      }
-              ${isUnlocked
-                        ? "border-gray-200 cursor-pointer hover:shadow-md"
-                        : "bg-gray-50 border-gray-100 text-gray-400 cursor-not-allowed"
-                      }
-            `}
+            p-4 rounded-xl border transition-all
+            ${isActive ? "bg-primary-dark text-white border-primary shadow-md" : ""}
+            ${isUnlocked && !isActive ? "bg-white border-gray-200 text-gray-800 cursor-pointer hover:shadow-md" : ""}
+            ${!isUnlocked ? "bg-gray-50 border-gray-100 text-gray-500 cursor-not-allowed" : ""}
+          `}
                   >
-                    <p className="text-xs uppercase tracking-wide ">
+                    <p className={`text-xs uppercase tracking-wide ${isActive ? "text-white" : isUnlocked ? "text-gray-700" : "text-gray-500"}`}>
                       Step {s.id}
                     </p>
-                    <div className="font-semibold">{s.title}</div>
-                  </div>  
+
+                    <div className={`font-semibold ${isActive ? "text-white" : isUnlocked ? "text-gray-800" : "text-gray-600"}`}>
+                      {s.title}
+                    </div>
+                  </div>
                 </MotionItem>
               );
             })}
           </MotionContainer>
+
         </div>
 
         <div className="flex-1 max-w-3xl">

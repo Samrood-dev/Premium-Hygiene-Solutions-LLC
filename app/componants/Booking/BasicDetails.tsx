@@ -22,7 +22,7 @@ const BasicDetails = ({ formData, setFormData, nextStep, prevStep, markCompleted
     const { name, value } = e.target;
 
     if (name === "phone") {
-      const numericValue = value.replace(/\D/g, ""); 
+      const numericValue = value.replace(/\D/g, "");
       setFormData({ ...formData, phone: numericValue });
       if (errors.phone) setErrors({ ...errors, phone: "" });
       return;
@@ -66,12 +66,12 @@ const BasicDetails = ({ formData, setFormData, nextStep, prevStep, markCompleted
     <MotionContainer className="bg-white border border-gray-300 p-6">
       <MotionItem>
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-
           <div className="grid md:grid-cols-2 gap-6">
             <MotionItem>
-              <label className="block text-gray-700 font-medium mb-2">Name *</label>
+              <label htmlFor="name" className="block text-gray-700 font-medium mb-2">Name *</label>
               <input
                 type="text"
+                id="name"
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
@@ -81,8 +81,9 @@ const BasicDetails = ({ formData, setFormData, nextStep, prevStep, markCompleted
             </MotionItem>
 
             <MotionItem>
-              <label className="block text-gray-700 font-medium mb-2">Email *</label>
+              <label htmlFor="email" className="block text-gray-700 font-medium mb-2">Email *</label>
               <input
+                id="email"
                 type="email"
                 name="email"
                 value={formData.email}
@@ -94,25 +95,27 @@ const BasicDetails = ({ formData, setFormData, nextStep, prevStep, markCompleted
           </div>
 
           <MotionItem>
-            <label className="block text-gray-700 font-medium mb-2">Phone number *</label>
-              <input
-                type="tel"
-                name="phone"
-                maxLength={10}
-                inputMode="numeric"
-                pattern="[0-9]*"
-                value={formData.phone}
-                onChange={handleChange}
-                className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary ${errors.phone ? 'border-red-500' : 'border-gray-300'}`}
-              />
+            <label htmlFor="phone" className="block text-gray-700 font-medium mb-2">Phone number *</label>
+            <input
+              type="tel"
+              name="phone"
+              id="phone"
+              maxLength={10}
+              inputMode="numeric"
+              pattern="[0-9]*"
+              value={formData.phone}
+              onChange={handleChange}
+              className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary ${errors.phone ? 'border-red-500' : 'border-gray-300'}`}
+            />
             {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
           </MotionItem>
 
           <MotionItem>
-            <label className="block text-gray-700 font-medium mb-2">Address *</label>
+            <label htmlFor="address" className="block text-gray-700 font-medium mb-2">Address *</label>
             <input
               type="text"
               name="address"
+              id="address"
               value={formData.address}
               onChange={handleChange}
               className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary ${errors.address ? 'border-red-500' : 'border-gray-300'}`}
@@ -121,9 +124,10 @@ const BasicDetails = ({ formData, setFormData, nextStep, prevStep, markCompleted
           </MotionItem>
 
           <MotionItem>
-            <label className="block text-gray-700 font-medium mb-2">Additional Message</label>
+            <label htmlFor="message" className="block text-gray-700 font-medium mb-2">Additional Message</label>
             <textarea
               name="message"
+              id="message"
               value={formData.message}
               onChange={handleChange}
               rows={4}

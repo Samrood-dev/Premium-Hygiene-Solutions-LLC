@@ -78,14 +78,14 @@ const BookingWizard = () => {
 
   return (
     <div className="pt-30 max-w-full px-5">
-      <motion.h2
+      <motion.h1
         className="text-3xl font-bold text-center mb-8"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
         Book your service
-      </motion.h2>
+      </motion.h1>
       <motion.p
         className="text-center text-gray-600 max-w-2xl mx-auto mb-10 text-lg"
         initial={{ opacity: 0, y: -10 }}
@@ -119,11 +119,11 @@ const BookingWizard = () => {
                       }
             `}
                   >
-                    <p className="text-xs uppercase tracking-wide opacity-70">
+                    <p className="text-xs uppercase tracking-wide ">
                       Step {s.id}
                     </p>
-                    <h4 className="text-base font-semibold">{s.title}</h4>
-                  </div>
+                    <div className="font-semibold">{s.title}</div>
+                  </div>  
                 </MotionItem>
               );
             })}

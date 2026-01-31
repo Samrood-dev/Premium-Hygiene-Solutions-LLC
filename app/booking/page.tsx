@@ -20,10 +20,10 @@ export const metadata = {
 
 export default function App() {
   return (
-    <>
+    <main>
         <Navbar />
         <BookingWizard />
         <Footer/>
-    </>
+    </main>
   );
 }

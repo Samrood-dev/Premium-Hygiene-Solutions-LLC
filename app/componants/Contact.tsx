@@ -120,9 +120,9 @@ const Contact = () => {
           <MotionContainer className="text-center mb-12">
             <MotionItem>
               <h4>REACH OUT TO US</h4>
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-900">
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
                 Contact Us
-              </h1>
+              </h2>
             </MotionItem>
           </MotionContainer>
 

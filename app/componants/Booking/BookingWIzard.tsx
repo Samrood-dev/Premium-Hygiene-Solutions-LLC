@@ -6,7 +6,7 @@ import ServiceStep from "./ServiceStep";
 import Summary from "./Summary";
 import MotionContainer from "../MotionContainer/MotionContainer";
 import MotionItem from "../MotionItem/MotionItem";
-import {motion} from 'framer-motion'
+import { motion } from 'framer-motion'
 
 const steps = [
   { id: 1, title: "Service" },
@@ -21,7 +21,7 @@ export type ServiceType =
   | "baby-sitting"
   | "deep-cleaning"
   | "office-cleaning";
-export type Category =  "without-materials" | "with-materials"
+export type Category = "without-materials" | "with-materials"
 
 export type FormData = {
   name: string;
@@ -77,15 +77,25 @@ const BookingWizard = () => {
   const prevStep = () => setStep((prev) => prev - 1);
 
   return (
-    <div className="py-20 max-w-full px-5">
-     <motion.h2
-      className="text-3xl font-bold text-center mb-12"
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
-    >
-      Book your service
-    </motion.h2>
+    <div className="pt-30 max-w-full px-5">
+      <motion.h2
+        className="text-3xl font-bold text-center mb-8"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+      >
+        Book your service
+      </motion.h2>
+      <motion.p
+        className="text-center text-gray-600 max-w-2xl mx-auto mb-10 text-lg"
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+      >
+        Book professional cleaning services in Dubai in just a few steps.
+        Choose your service, select date and time, and confirm your booking instantly.
+      </motion.p>
+
       <div className="flex flex-col md:flex-row justify-center gap-10 min-h-screen">
 
         <div className="bg-white rounded-2xl border max-h-fit border-gray-300 shadow-lg min-w-xs">

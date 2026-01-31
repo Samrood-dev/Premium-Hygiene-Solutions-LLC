@@ -1,8 +1,9 @@
-import { Sparkles, Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin } from "lucide-react";
 import MotionContainer from "./MotionContainer/MotionContainer";
 import MotionItem from "./MotionItem/MotionItem";
 import { companyData } from "@/utils/constants";
 import Image from "next/image";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -11,18 +12,21 @@ const Footer = () => {
         <MotionContainer className="grid md:grid-cols-3 gap-8">
           {/* Brand */}
           <MotionItem>
-            <div>
-              <div className="flex items-center mb-4">
-                <Image className="-ml-18" src={'/logo.png'} width={250} height={250} alt=""/>
-                <span className="-ml-14 text-2xl font-bold">
-                  Premium Hygiene <br/>Solutions LLC
+              <div className="flex items-center gap-4 mb-4">
+                <Image
+                  src="/logo.svg"
+                  alt="Premium Hygiene Solutions LLC logo"
+                  width={60}  
+                  height={60} 
+                />
+                <span className="text-2xl font-bold">
+                  Premium Hygiene <br />Solutions LLC
                 </span>
               </div>
-              <p className="text-gray-400 text-xl -mt-6">
+              <p className="text-gray-400 text-xl">
                 Professional cleaning services you can trust. Making your space
                 sparkle with care and perfection.
               </p>
-            </div>
           </MotionItem>
 
           {/* Quick Links */}
@@ -36,14 +40,14 @@ const Footer = () => {
                   { name: "Services", href: "#services" },
                   { name: "Contact", href: "#contact" },
                 ].map((link, index) => (
-                  <MotionItem key={index}>
+                  <MotionItem key={link.name}>
                     <li>
-                      <a
+                      <Link
                         href={link.href}
                         className="text-gray-400 text-lg hover:text-white transition"
                       >
                         {link.name}
-                      </a>
+                      </Link>
                     </li>
                   </MotionItem>
                 ))}
@@ -57,16 +61,23 @@ const Footer = () => {
               <h4 className="text-xl font-semibold mb-4">Contact</h4>
               <ul className="space-y-3 text-gray-400">
                 <li className="flex items-start gap-2 text-lg">
-                  <Phone className="h-5 w-5 text-primary" />
-                  {companyData.phone}
+                  <Phone aria-hidden="true" className="h-5 w-5 text-primary" />
+                  <a href={`tel:${companyData.phone}`} className="hover:text-white">
+                    {companyData.phone}
+                  </a>
                 </li>
+
                 <li className="flex items-start gap-2 text-lg">
                   <Mail className="h-5 w-5 text-primary" />
-                  {companyData.email}
+                  <a href={`mailto:${companyData.email}`} className="hover:text-white">
+                    {companyData.email}
+                  </a>
                 </li>
                 <li className="flex items-start gap-2 text-lg">
                   <MapPin className="h-5 w-5 text-primary" />
-                  {companyData.address}
+                  <address className="not-italic">
+                    {companyData.address}
+                  </address>
                 </li>
               </ul>
             </div>

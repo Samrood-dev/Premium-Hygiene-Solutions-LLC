@@ -114,7 +114,7 @@ const Reviews = () => {
           {/* Reviews */}
           <MotionContainer className="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide">
             {reviews.map((review, index) => (
-              <MotionItem key={index} className="min-w-70 max-w-[320px] h-96 bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-xl transition snap-center">
+              <MotionItem key={index} className="min-w-80 max-w-[320px] bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-xl transition snap-center">
                 <div className="flex items-center mb-4">
                   <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-semibold text-lg mr-4">
                     {review.avatar}
@@ -151,7 +151,7 @@ const Reviews = () => {
                 </h3>
               </MotionItem>
               <MotionItem>
-                <p className="text-blue-100 text-md mb-6 max-w-2xl mx-auto">
+                <p className="text-blue-100 text-lg mb-6 max-w-2xl mx-auto">
                   Join hundreds of satisfied customers who trust PremiumHygiene.
                 </p>
               </MotionItem>

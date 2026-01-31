@@ -13,12 +13,15 @@ const Navbar = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-24">
                     <MotionContainer className="flex items-center">
-                        <MotionItem>
-                            <Image className='-ml-14 ' alt='' src={'/logo.png'} width={250} height={250} />
-                        </MotionItem>
-                        <MotionItem className='-ml-24'>
+                        <MotionItem className='flex gap-4'>
+                            <Image
+                                src="/logo.svg"
+                                alt="Premium Hygiene Solutions LLC logo"
+                                width={60}
+                                height={60}
+                            />
                             <span className="hidden md:block text-xl md:text-2xl font-bold text-gray-800">Premium Hygiene Solutions LLC</span>
-                            <span className="md:hidden text-xl md:text-2xl font-bold text-gray-800">Premium Hygiene <br/> Solutions LLC</span>
+                            <span className="md:hidden text-xl md:text-2xl font-bold text-gray-800">Premium Hygiene <br /> Solutions LLC</span>
                         </MotionItem>
                     </MotionContainer>
 

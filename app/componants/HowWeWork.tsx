@@ -41,8 +41,8 @@ const HowWeWork = () => {
                         </div>
 
                         {/* Card */}
-                        <div className="bg-primary text-white rounded-2xl p-8 pt-12 w-full max-w-sm shadow-lg">
-                            <h3 className="text-4xl font-bold mb-4">{step.title}</h3>
+                        <div className="bg-primary text-white rounded-2xl p-8 pt-12 w-full md:max-w-sm shadow-lg">
+                            <h3 className="text-3xl text-nowrap font-bold mb-4">{step.title}</h3>
                             <p className="text-lg opacity-90">{step.desc}</p>
 
                         </div>

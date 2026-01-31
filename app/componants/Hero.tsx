@@ -1,16 +1,16 @@
 import { companyData } from "@/utils/constants";
 import MotionContainer from "./MotionContainer/MotionContainer";
 import MotionItem from "./MotionItem/MotionItem";
+import Image from "next/image";
+import Link from "next/link";
 
 const Hero = () => {
   return (
     <section
-      className="bg-primary md:bg-[linear-gradient(to_bottom,#dc2626_60%,#ffffff_50%)] text-white py-10">
-
-
+      className="bg-primary md:bg-[linear-gradient(to_bottom,#dc2626_60%,#ffffff_50%)] text-white pt-32 pb-10"
+      aria-label="Hero section with booking and contact information" >
       <MotionContainer className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <MotionItem>
-
           <h1 className="text-4xl md:text-5xl font-extrabold mb-4">
             Professional Cleaning Services
           </h1>
@@ -18,7 +18,7 @@ const Hero = () => {
 
         <MotionItem>
           <p className="text-lg font-semibold md:text-lg mb-3 max-w-2xl mx-auto">
-            We provide top-quality cleaning services for homes and offices. Experience the sparkle of a professionally cleaned space.
+            Serving homes and offices across Dubai, including Silicon Oasis, Downtown, and Business Bay. Our professional cleaning team ensures every corner shines.
           </p>
         </MotionItem>
 
@@ -32,11 +32,9 @@ const Hero = () => {
           </span>
         </MotionItem> */}
 
-
         <MotionItem className="inline-flex relative w-30 h-30 mb-4">
           {/* Ping effect */}
           <div className="absolute inset-0 rounded-full bg-white animate-ping opacity-30"></div>
-
           {/* Main circle */}
           <div className="relative flex flex-col items-center justify-center w-full h-full rounded-full bg-white shadow-xl">
             <span className="text-primary text-3xl font-extrabold">
@@ -49,26 +47,28 @@ const Hero = () => {
         </MotionItem>
 
         <MotionItem className="flex flex-col md:flex-row justify-center gap-4 mb-12">
-          <a
-            href="/booking"
+          <Link href="/booking"
             className="border text-2xl font-semibold px-6 py-3 rounded-full hover:bg-white hover:text-primary-dark transition"
-
-          >
+            aria-label="Book a professional cleaning service online">
             Book A Cleaning Now
-          </a>
+          </Link>
           <a
-            href="tel:3033094226"
+            href={`tel:${companyData.phone}`}
             className="border text-2xl font-semibold px-6 py-3 rounded-full hover:bg-white hover:text-primary-dark transition"
+            aria-label="Call professional cleaning service"
           >
             {companyData.phone}
           </a>
         </MotionItem>
 
         <div className="w-full max-w-5xl max-h-[70vh] mx-auto overflow-hidden rounded-3xl shadow-2xl relative">
-          <img
+          <Image
             src="/hero-bg.jpg"
-            alt="Cleaning Service"
-            className="w-full h-auto object-cover"
+            alt="Professional home and office cleaning services in Dubai"
+            width={1600}
+            height={900}
+            priority
+            className="object-cover object-top "
           />
         </div>
       </MotionContainer>

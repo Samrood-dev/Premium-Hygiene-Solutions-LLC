@@ -1,7 +1,9 @@
 "use client"
+import Image from "next/image";
 import MotionContainer from "./MotionContainer/MotionContainer";
 import MotionItem from "./MotionItem/MotionItem";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const Services = () => {
   const router = useRouter();
@@ -10,7 +12,7 @@ const Services = () => {
     {
       title: "Home Cleaning Service",
       image: "/services/home-cleaning.jpg",
-      className: 'object-bottom',
+      className: 'objet-top md:object-bottom ',
       description:
         "Complete home cleaning including dusting, mopping, vacuuming, and sanitizing for a fresh living space.",
     },
@@ -53,24 +55,29 @@ const Services = () => {
 
         <MotionContainer className="grid grid-cols-1 justify-items-center md:grid-cols-3 gap-8 mx-auto">
           {services.map((service, index) => (
-            <MotionItem key={index} className="w-full max-w-sm">
-              <div onClick={() => router.push("/booking")} className="bg-white rounded-lg shadow-md hover:shadow-xl transition overflow-hidden">
+            <MotionItem key={service.title} className="w-full md:max-w-sm">
+              <Link href="/booking" className="block">
+              <div className="bg-white rounded-lg shadow-md hover:shadow-xl transition overflow-hidden">
 
-                <div className="h-40 w-full overflow-hidden">
-                  <img
+                <div className="relative h-44 w-full overflow-hidden">
+                  <Image
                     src={service.image}
-                    alt={service.title}
-                    className={`w-full ${service?.className} h-full object-cover  hover:scale-105 transition-transform duration-300`}
+                    alt={`Professional ${service.title.toLowerCase()} in Dubai`}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className={`${service?.className} object-cover hover:scale-105 transition-transform duration-300`}
                   />
                 </div>
 
-                <div className="p-6 text-center h-56">
+                <div className="p-6 text-center h-auto md:h-44">
                   <h3 className="text-3xl font-semibold text-gray-900 mb-2">
                     {service.title}
                   </h3>
                   <p className="text-gray-600 text-lg">{service.description}</p>
                 </div>
               </div>
+              </Link>
+
             </MotionItem>
           ))}
         </MotionContainer>

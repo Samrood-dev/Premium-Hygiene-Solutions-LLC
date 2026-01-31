@@ -2,6 +2,7 @@ import { CheckCircle } from "lucide-react";
 import { FormData, ServiceType } from "./BookingWIzard";
 import MotionContainer from "../MotionContainer/MotionContainer";
 import MotionItem from "../MotionItem/MotionItem";
+import Image from "next/image";
 
 type Props = {
   formData: FormData;
@@ -78,15 +79,15 @@ const ServiceStep = ({ formData, setFormData, nextStep }: Props) => {
                     : "bg-white border border-gray-200 hover:shadow-lg"
                   }`}
               >
-                {/* Image */}
-                <div className="w-full md:w-32 h-40 md:h-32 shrink-0 overflow-hidden">
-                  <img
-                    src={service.image}
-                    alt={service.title}
+                <div className="relative w-full  md:w-32 h-40 md:h-32 shrink-0 overflow-hidden">
+                  <Image
+                     src={service.image}
+                     alt={service.title}
+                     fill
+                     priority
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                   />
                 </div>
-
                 {/* Text content */}
                 <div className="flex-1 p-5 flex items-start justify-between">
                   <div>

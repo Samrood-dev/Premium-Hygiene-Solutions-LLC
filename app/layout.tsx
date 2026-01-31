@@ -1,7 +1,7 @@
-import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Whatsapp from "./componants/Whatsapp";
+import { siteMeta } from "@/seo.config";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,9 +13,38 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Premium Hygiene Solutions LLC",
-  description: "Premium Hygiene Solutions LLC provides professional and reliable cleaning services for homes and offices, offering spotless results, flexible scheduling, and customer-focused solutions",
+export const metadata = {
+  metadataBase: new URL(siteMeta.url),
+  title: {
+    default: siteMeta.title,
+    template: `%s | ${siteMeta.title}`,
+  },
+  description: siteMeta.description,
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+    },
+  },  
+  other: {
+    "application/ld+json": JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      name: "Premium Maids",
+      image: siteMeta.image,
+      telephone: siteMeta.phone,
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: siteMeta.address.street,
+        addressLocality: siteMeta.address.locality,
+        addressCountry: siteMeta.address.country,
+      },
+      url: siteMeta.url,
+    }),
+  },
 };
 
 export default function RootLayout({
@@ -29,7 +58,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
-        <Whatsapp/>
+        <Whatsapp />
       </body>
     </html>
   );

@@ -1,5 +1,5 @@
 'use client';
-import { FC, ReactNode } from 'react';
+import { ElementType, FC, ReactNode } from 'react';
 import { motion } from 'framer-motion';
 
 const itemVariants = {
@@ -10,13 +10,17 @@ const itemVariants = {
 interface MotionItemProps {
     children: ReactNode;
     className?: string;
+    as?: ElementType;
+
 }
 
-const MotionItem: FC<MotionItemProps> = ({ children, className = '' }) => {
+const MotionItem: FC<MotionItemProps> = ({ children, className = '', as:Component = 'div' }) => {
+    const MotionComponent = motion(Component);
+
     return (
-        <motion.div variants={itemVariants} className={className}>
+        <MotionComponent variants={itemVariants} className={className}>
             {children}
-        </motion.div>
+        </MotionComponent>
     );
 };
 

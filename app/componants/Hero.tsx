@@ -63,7 +63,7 @@ const Hero = () => {
 
         <div className="w-full max-w-5xl max-h-[70vh] mx-auto overflow-hidden rounded-3xl shadow-2xl relative">
           <Image
-            src="/hero-bg.jpg"
+            src="/hero-bg.webp"
             alt="Professional home and office cleaning services in Dubai"
             width={1600}
             height={900}

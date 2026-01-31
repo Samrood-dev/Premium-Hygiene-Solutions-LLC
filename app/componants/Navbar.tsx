@@ -43,7 +43,11 @@ const Navbar = () => {
                         </MotionItem>
                     </MotionContainer>
 
-                    <button onClick={() => setIsOpen(!isOpen)} className="md:hidden">
+                    <button
+                        aria-label={isOpen ? "Close menu" : "Open menu"}
+                        aria-expanded={isOpen}
+                        aria-controls="mobile-menu"
+                        onClick={() => setIsOpen(!isOpen)} className="md:hidden">
                         {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6 text-black" />}
                     </button>
                 </div>

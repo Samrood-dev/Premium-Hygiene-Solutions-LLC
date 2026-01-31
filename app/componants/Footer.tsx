@@ -30,29 +30,25 @@ const Footer = () => {
           </MotionItem>
 
           {/* Quick Links */}
-          <MotionItem>
-            <div>
+          <MotionItem as="nav" aria-label="Footer navigation">
               <h4 className="text-xl font-semibold mb-4">Quick Links</h4>
-              <ul className="space-y-2">
+              <MotionContainer as="ul" className="space-y-2">
                 {[
                   { name: "Home", href: "#home" },
                   { name: "About", href: "#about" },
                   { name: "Services", href: "#services" },
                   { name: "Contact", href: "#contact" },
-                ].map((link, index) => (
-                  <MotionItem key={link.name}>
-                    <li>
+                ].map((link) => (
+                  <MotionItem as="li" key={link.name}>
                       <Link
                         href={link.href}
                         className="text-gray-400 text-lg hover:text-white transition"
                       >
                         {link.name}
                       </Link>
-                    </li>
                   </MotionItem>
                 ))}
-              </ul>
-            </div>
+              </MotionContainer>
           </MotionItem>
 
           {/* Contact Info */}
@@ -68,13 +64,13 @@ const Footer = () => {
                 </li>
 
                 <li className="flex items-start gap-2 text-lg">
-                  <Mail className="h-5 w-5 text-primary" />
+                  <Mail  aria-hidden="true" className="h-5 w-5 text-primary" />
                   <a href={`mailto:${companyData.email}`} className="hover:text-white">
                     {companyData.email}
                   </a>
                 </li>
                 <li className="flex items-start gap-2 text-lg">
-                  <MapPin className="h-5 w-5 text-primary" />
+                  <MapPin  aria-hidden="true" className="h-5 w-5 text-primary" />
                   <address className="not-italic">
                     {companyData.address}
                   </address>
@@ -87,11 +83,9 @@ const Footer = () => {
 
         {/* Bottom */}
         <MotionContainer className="border-t border-gray-800 mt-8 pt-8 text-center">
-          <MotionItem>
-            <p className="text-gray-400">
+          <MotionItem as="p" className="text-gray-400">
               &copy; {new Date().getFullYear()} Premium Hygiene Solutions LLC. All
               rights reserved.
-            </p>
           </MotionItem>
         </MotionContainer>
 

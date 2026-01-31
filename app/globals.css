@@ -22,19 +22,9 @@
 
 }
 
-
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-} */
-/* 
-input,
-textarea {
-  color: #000;
-  background: #fff;
-} */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
 
 body {
   background: var(--background);

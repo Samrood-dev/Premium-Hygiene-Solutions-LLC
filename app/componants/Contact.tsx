@@ -172,10 +172,11 @@ const Contact = () => {
                   ].map((field, index) => (
                     <MotionItem key={index}>
                       <div>
-                        <label className="block text-gray-700 text-2xl font-medium mb-2">
+                        <label htmlFor={field.name} className="block text-gray-700 text-2xl font-medium mb-2">
                           {field.label}
                         </label>
                         <input
+                          id={field.name} 
                           type={field.type}
                           name={field.name}
                           value={field.value}
@@ -194,10 +195,11 @@ const Contact = () => {
 
                   <MotionItem>
                     <div>
-                      <label className="block text-gray-700 text-2xl font-medium mb-2">
+                      <label htmlFor="message" className="block text-gray-700 text-2xl font-medium mb-2">
                         Message *
                       </label>
                       <textarea
+                        id="message"
                         name="message"
                         value={formData.message}
                         onChange={handleChange}

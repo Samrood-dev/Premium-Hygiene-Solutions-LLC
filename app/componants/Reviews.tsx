@@ -112,7 +112,7 @@ const Reviews = () => {
           </MotionContainer>
 
           {/* Reviews */}
-          <MotionContainer className="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide">
+          <MotionContainer className="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory scroll-smooth">
             {reviews.map((review, index) => (
               <MotionItem key={index} className="min-w-80 max-w-[320px] bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-xl transition snap-center">
                 <div className="flex items-center mb-4">
@@ -120,14 +120,14 @@ const Reviews = () => {
                     {review.avatar}
                   </div>
                   <div>
-                    <h4 className="font-semibold text-xl text-gray-900">
+                    <div className="font-semibold text-xl text-gray-900">
                       {review.name}
-                    </h4>
+                    </div>
                     <p className="text-sm text-gray-500">{review.date}</p>
                   </div>
                 </div>
 
-                <div className="flex mb-3">{renderStars(review.rating)}</div>
+                <div aria-label={`Rating: ${review.rating} out of 5`} className="flex mb-3">{renderStars(review.rating)}</div>
 
                 <div className="mb-3">
                   <span className="inline-block bg-blue-100 text-blue-800 text-lg px-4 py-1 rounded-full">

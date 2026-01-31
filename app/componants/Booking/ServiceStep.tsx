@@ -18,11 +18,11 @@ type Service = {
 };
 
 const services: Service[] = [
-  { id: "home-cleaning", title: "Home Cleaning Service", duration: "1h", image: "/services/home-cleaning.jpg" },
-  { id: "ironing", title: "Ironing Service", duration: "1h", image: "/services/ironing.jpg" },
-  { id: "baby-sitting", title: "Baby Sitting", duration: "1h", image: "/services/baby-sitting.jpg" },
-  { id: "deep-cleaning", title: "Deep Cleaning Service", duration: "1h", image: "/services/deep-cleaning.jpg" },
-  { id: "office-cleaning", title: "Office Cleaning Service", duration: "1h", image: "/services/office-cleaning.jpg" },
+  { id: "home-cleaning", title: "Home Cleaning Service", duration: "1h", image: "/services/home-cleaning.webp" },
+  { id: "ironing", title: "Ironing Service", duration: "1h", image: "/services/ironing.webp" },
+  { id: "baby-sitting", title: "Baby Sitting", duration: "1h", image: "/services/baby-sitting.webp" },
+  { id: "deep-cleaning", title: "Deep Cleaning Service", duration: "1h", image: "/services/deep-cleaning.webp" },
+  { id: "office-cleaning", title: "Office Cleaning Service", duration: "1h", image: "/services/office-cleaning.webp" },
 ];
 
 const categories = [

@@ -11,32 +11,32 @@ const Services = () => {
   const services = [
     {
       title: "Home Cleaning Service",
-      image: "/services/home-cleaning.jpg",
+      image: "/services/home-cleaning.webp",
       className: 'objet-top md:object-bottom ',
       description:
         "Complete home cleaning including dusting, mopping, vacuuming, and sanitizing for a fresh living space.",
     },
     {
       title: "Ironing Service",
-      image: "/services/ironing.jpg",
+      image: "/services/ironing.webp",
       description:
         "Professional ironing service to keep your clothes crisp, neat, and wrinkle-free.",
     },
     {
       title: "Baby Sitting",
-      image: "/services/baby-sitting.jpg",
+      image: "/services/baby-sitting.webp",
       description:
         "Safe and caring babysitting service to ensure your child is happy, secure, and well cared for.",
     },
     {
       title: "Deep Cleaning Service",
-      image: "/services/deep-cleaning.jpg",
+      image: "/services/deep-cleaning.webp",
       description:
         "Intensive deep cleaning for hard-to-reach areas, removing stubborn dirt and bacteria.",
     },
     {
       title: "Office Cleaning Service",
-      image: "/services/office-cleaning.jpg",
+      image: "/services/office-cleaning.webp",
       description:
         "Professional office cleaning to maintain a hygienic and productive workspace.",
     },

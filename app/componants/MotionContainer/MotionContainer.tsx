@@ -1,5 +1,5 @@
 'use client';
-import { FC, ReactNode } from 'react';
+import { ElementType, FC, ReactNode } from 'react';
 import { motion } from 'framer-motion';
 
 const containerVariants = {
@@ -14,14 +14,18 @@ const containerVariants = {
 interface MotionContainerProps {
     children: ReactNode;
     className?: string;
+    as?: ElementType
 }
 
 const MotionContainer: FC<MotionContainerProps> = ({
     children,
     className = '',
+    as: Component = 'div'
 }) => {
+    const MotionComponent = motion(Component);
+
     return (
-        <motion.div
+        <MotionComponent
             initial='hidden'
             whileInView='visible'
             viewport={{ once: true, amount: 0.2 }}
@@ -29,8 +33,10 @@ const MotionContainer: FC<MotionContainerProps> = ({
             className={className}
         >
             {children}
-        </motion.div>
+        </MotionComponent>
     );
+
+
 };
 
 export default MotionContainer;

@@ -67,7 +67,7 @@ const About = () => {
                 </h3>
               </MotionItem>
 
-              <MotionContainer className="space-y-4">
+              <MotionContainer as="ul" className="space-y-4">
                 {[
                   "Trained and background-checked professionals",
                   "Eco-friendly cleaning products",
@@ -75,11 +75,9 @@ const About = () => {
                   "Flexible scheduling and competitive pricing",
                   "Fully insured and bonded",
                 ].map((item, index) => (
-                  <MotionItem key={index}>
-                    <li className="flex items-start list-none">
+                  <MotionItem as="li"  key={index} className="flex items-start list-none">
                       <CheckCircle className="h-6 w-6 text-primary mr-3 shrink-0 mt-0.5" />
                       <span className="text-gray-700 text-xl">{item}</span>
-                    </li>
                   </MotionItem>
                 ))}
               </MotionContainer>

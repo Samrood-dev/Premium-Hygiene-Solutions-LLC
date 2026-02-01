@@ -7,7 +7,7 @@ import TriangleArrow from "./TriangleArrow";
 import CheckCircle from "../Icons/CheckCircle";
 import Phone from "../Icons/Phone";
 import Mail from "../Icons/Mail";
-import MapPin from "./MapPin";
+import MapPin from "../Icons/MapPin";
 import Clock from "../Icons/Clock";
 
 type FormData = {

@@ -22,8 +22,8 @@ const Navbar = () => {
                                 width={60}
                                 height={60}
                             />
-                            <span className="hidden md:block text-xl md:text-2xl font-bold text-gray-800">Premium Hygiene Solutions LLC</span>
-                            <span className="md:hidden text-xl md:text-2xl font-bold text-gray-800">Premium Hygiene <br /> Solutions LLC</span>
+                            <span className="hidden md:block text-2xl font-bold text-gray-800">Premium Hygiene Solutions LLC</span>
+                            <span className="md:hidden text-xl font-bold text-gray-800">Premium Hygiene <br /> Solutions LLC</span>
                         </MotionItem>
                     </MotionContainer>
 

@@ -1,5 +1,5 @@
 "use client"
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import BasicDetails from "./BasicDetails";
 import DateTimeStep from "./DateTimeStep";
 import ServiceStep from "./ServiceStep";
@@ -64,17 +64,10 @@ const BookingWizard = () => {
     if (stepNumber === 1 || completedSteps.includes(stepNumber - 1)) {
       setStep(stepNumber);
     }
-  };
+  }
 
-  useEffect(() => {
-    if (formData.service) {
-      markCompleted(1);
-      setStep(2);
-    }
-  }, [formData.service]);
-
-  const nextStep = () => setStep((prev) => prev + 1);
-  const prevStep = () => setStep((prev) => prev - 1);
+  const nextStep = () => setStep((prev) => prev + 1)
+  const prevStep = () => setStep((prev) => prev - 1)
 
   return (
     <div className="pt-30 max-w-full px-5">
@@ -97,46 +90,47 @@ const BookingWizard = () => {
       </motion.p>
 
       <div className="flex flex-col md:flex-row justify-center gap-10 min-h-screen">
+        <MotionContainer className="bg-white rounded-2xl border max-h-fit border-gray-300 shadow-lg min-w-xs space-y-4 p-4">
+          {steps.map((s) => {
+            const isActive = step === s.id;
+            const isUnlocked = s.id === 1 || completedSteps.includes(s.id - 1);
 
-        <div className="bg-white rounded-2xl border max-h-fit border-gray-300 shadow-lg min-w-xs">
-          <MotionContainer className="space-y-4 p-4">
-            {steps.map((s) => {
-              const isActive = step === s.id;
-              const isUnlocked = s.id === 1 || completedSteps.includes(s.id - 1);
-
-              return (
-                <MotionItem key={s.id}>
-                  <div
-                    onClick={() => isUnlocked && goToStep(s.id)}
-                    className={`
+            return (
+              <MotionItem key={s.id}>
+                <div
+                  onClick={() => isUnlocked && goToStep(s.id)}
+                  className={`
             p-4 rounded-xl border transition-all
             ${isActive ? "bg-primary-dark text-white border-primary shadow-md" : ""}
             ${isUnlocked && !isActive ? "bg-white border-gray-200 text-gray-800 cursor-pointer hover:shadow-md" : ""}
             ${!isUnlocked ? "bg-gray-50 border-gray-100 text-gray-500 cursor-not-allowed" : ""}
           `}
-                  >
-                    <p className={`text-xs uppercase tracking-wide ${isActive ? "text-white" : isUnlocked ? "text-gray-700" : "text-gray-500"}`}>
-                      Step {s.id}
-                    </p>
+                >
+                  <p className={`text-xs uppercase tracking-wide ${isActive ? "text-white" : isUnlocked ? "text-gray-700" : "text-gray-500"}`}>
+                    Step {s.id}
+                  </p>
 
-                    <div className={`font-semibold ${isActive ? "text-white" : isUnlocked ? "text-gray-800" : "text-gray-600"}`}>
-                      {s.title}
-                    </div>
+                  <div className={`font-semibold ${isActive ? "text-white" : isUnlocked ? "text-gray-800" : "text-gray-600"}`}>
+                    {s.title}
                   </div>
-                </MotionItem>
-              );
-            })}
-          </MotionContainer>
-
-        </div>
+                </div>
+              </MotionItem>
+            );
+          })}
+        </MotionContainer>
 
         <div className="flex-1 max-w-3xl">
-
           {step === 1 &&
             <ServiceStep
               formData={formData}
-              setFormData={setFormData}
+              setService={(service) =>
+                setFormData(prev => ({ ...prev, service }))
+              }
+              setCategory={(category) =>
+                setFormData(prev => ({ ...prev, category }))
+              }
               nextStep={nextStep}
+              markCompleted={markCompleted}
             />}
           {step === 2 &&
             <DateTimeStep

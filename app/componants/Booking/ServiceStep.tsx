@@ -1,13 +1,16 @@
-import { FormData, ServiceType } from "./BookingWIzard";
+import { Category, FormData, ServiceType } from "./BookingWIzard";
 import MotionContainer from "../MotionContainer/MotionContainer";
 import MotionItem from "../MotionItem/MotionItem";
 import Image from "next/image";
 import CheckCircle from "@/app/Icons/CheckCircle";
+import React from "react";
 
 type Props = {
   formData: FormData;
-  setFormData: React.Dispatch<React.SetStateAction<FormData>>;
+  setService: (service: ServiceType) => void;
+  setCategory: (category: Category) => void;
   nextStep: () => void;
+  markCompleted: (step: number) => void;
 };
 
 type Service = {
@@ -25,14 +28,14 @@ const services: Service[] = [
   { id: "office-cleaning", title: "Office Cleaning Service", duration: "1h", image: "/services/office-cleaning.webp" },
 ];
 
-const categories = [
+const categories: {id: Category, label: string}[] = [
   { id: "with-materials", label: "With materials" },
   { id: "without-materials", label: "Without materials" },
 ];
 
-const ServiceStep = ({ formData, setFormData, nextStep }: Props) => {
+const ServiceStep = ({ formData, setService, nextStep, setCategory, markCompleted }: Props) => {
   const selectService = (id: ServiceType) => {
-    setFormData((prev) => ({ ...prev, service: id }));
+    setService(id);
   };
 
   return (
@@ -47,7 +50,7 @@ const ServiceStep = ({ formData, setFormData, nextStep }: Props) => {
               <button
                 key={cat.id}
                 onClick={() =>
-                  setFormData((prev) => ({ ...prev, category: cat.id as any }))
+                  setCategory(cat.id)
                 }
                 className={`flex items-center gap-2 px-4 py-2 rounded-full border transition
               ${isActive
@@ -108,7 +111,9 @@ const ServiceStep = ({ formData, setFormData, nextStep }: Props) => {
         <div className="flex">
           <button
             disabled={!formData.service}
-            onClick={nextStep}
+            onClick={()=>{nextStep()
+              markCompleted(1);
+            }}
             className="ml-auto mt-8 bg-primary text-white px-6 py-3 rounded-lg font-semibold disabled:opacity-50 hover:bg-red-700 transition"
           >
             Continue
@@ -119,4 +124,4 @@ const ServiceStep = ({ formData, setFormData, nextStep }: Props) => {
   );
 };
 
-export default ServiceStep;
+export default React.memo(ServiceStep);

@@ -5,7 +5,7 @@ const Social = () => {
     return (
         <div className="max-w-7xl mx-auto py-10 px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row md:items-center md:justify-between">
             <div className="flex flex-col items-center text-center gap-4 md:flex-row md:text-left md:gap-5">
-                <div className="rounded-2xl p-2 border-2">
+                <div className="rounded-2xl md:self-start p-2 border-2">
                     <Instagram className="h-14 w-14" />
                 </div>
                 <div>

@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Phone from "../Icons/Phone";
 import Mail from "../Icons/Mail";
-import MapPin from "./MapPin";
+import MapPin from "../Icons/MapPin";
 
 const Footer = () => {
   return (

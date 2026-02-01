@@ -1,4 +1,4 @@
-const Clock = (className: any) => (
+const Clock = ({ className }: { className: string }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={24}

@@ -1,4 +1,4 @@
-import { CheckCircle } from "lucide-react";
+import CheckCircle from "../Icons/CheckCircle";
 import MotionContainer from "./MotionContainer/MotionContainer";
 import MotionItem from "./MotionItem/MotionItem";
 

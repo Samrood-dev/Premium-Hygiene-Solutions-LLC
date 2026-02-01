@@ -1,4 +1,4 @@
-import { Star } from "lucide-react";
+import Star from "../Icons/Star";
 import MotionContainer from "./MotionContainer/MotionContainer";
 import MotionItem from "./MotionItem/MotionItem";
 import TriangleArrow from "./TriangleArrow";

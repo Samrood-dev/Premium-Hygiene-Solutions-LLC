@@ -1,9 +1,11 @@
-import { Phone, Mail, MapPin } from "lucide-react";
 import MotionContainer from "./MotionContainer/MotionContainer";
 import MotionItem from "./MotionItem/MotionItem";
 import { companyData } from "@/utils/constants";
 import Image from "next/image";
 import Link from "next/link";
+import Phone from "../Icons/Phone";
+import Mail from "../Icons/Mail";
+import MapPin from "./MapPin";
 
 const Footer = () => {
   return (

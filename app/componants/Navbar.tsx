@@ -1,10 +1,11 @@
 "use client"
-import { Menu, X, Sparkles, } from 'lucide-react';
 import { useState } from 'react';
 import MotionContainer from './MotionContainer/MotionContainer';
 import MotionItem from './MotionItem/MotionItem';
 import Image from 'next/image';
 import Link from 'next/link';
+import Menu from '../Icons/Menu';
+import Close from '../Icons/Close';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -49,7 +50,7 @@ const Navbar = () => {
                         aria-expanded={isOpen}
                         aria-controls="mobile-menu"
                         onClick={() => setIsOpen(!isOpen)} className="md:hidden">
-                        {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6 text-black" />}
+                        {isOpen ? <Close className="h-6 w-6" /> : <Menu className="h-6 w-6 text-black" />}
                     </button>
                 </div>
             </div>

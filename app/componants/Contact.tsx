@@ -1,10 +1,14 @@
 "use client";
-import { CheckCircle, Clock, Mail, MapPin, Phone } from "lucide-react";
 import { useState } from "react";
 import MotionContainer from "./MotionContainer/MotionContainer";
 import MotionItem from "./MotionItem/MotionItem";
 import { companyData } from "@/utils/constants";
 import TriangleArrow from "./TriangleArrow";
+import CheckCircle from "../Icons/CheckCircle";
+import Phone from "../Icons/Phone";
+import Mail from "../Icons/Mail";
+import MapPin from "./MapPin";
+import Clock from "../Icons/Clock";
 
 type FormData = {
   name: string;

@@ -1,8 +1,9 @@
-import { ArrowLeft, ArrowRight } from "lucide-react";
 import { FormData } from "./BookingWIzard";
 import MyDatePicker from "../DatePicker/MyDatePicker";
 import MotionContainer from "../MotionContainer/MotionContainer";
 import MotionItem from "../MotionItem/MotionItem";
+import ArrowRight from "@/app/Icons/ArrowRight";
+import ArrowLeft from "@/app/Icons/ArrowLeft";
 
 type Props = {
     formData: FormData;

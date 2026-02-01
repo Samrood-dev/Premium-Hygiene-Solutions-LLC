@@ -1,4 +1,3 @@
-import { ArrowLeft } from "lucide-react";
 import { FormData, ServiceType } from "./BookingWIzard";
 import { Toaster, toast } from 'sonner';
 import { useRouter } from "next/navigation";
@@ -6,6 +5,7 @@ import { PRICE_PER_HOUR } from "@/utils/constants";
 import MotionContainer from "../MotionContainer/MotionContainer";
 import MotionItem from "../MotionItem/MotionItem";
 import { useState } from "react";
+import ArrowLeft from "@/app/Icons/ArrowLeft";
 
 type Props = {
   formData: FormData;

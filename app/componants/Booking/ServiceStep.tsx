@@ -1,8 +1,8 @@
-import { CheckCircle } from "lucide-react";
 import { FormData, ServiceType } from "./BookingWIzard";
 import MotionContainer from "../MotionContainer/MotionContainer";
 import MotionItem from "../MotionItem/MotionItem";
 import Image from "next/image";
+import CheckCircle from "@/app/Icons/CheckCircle";
 
 type Props = {
   formData: FormData;

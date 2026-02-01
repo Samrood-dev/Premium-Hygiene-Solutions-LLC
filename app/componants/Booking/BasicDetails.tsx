@@ -1,8 +1,9 @@
-import { ArrowLeft, ArrowRight, CheckCircle } from "lucide-react";
 import { useState } from "react";
 import { BasicDetailsType } from "./BookingWIzard";
 import MotionContainer from "../MotionContainer/MotionContainer";
 import MotionItem from "../MotionItem/MotionItem";
+import ArrowRight from "@/app/Icons/ArrowRight";
+import ArrowLeft from "@/app/Icons/ArrowLeft";
 
 type Props = {
   formData: BasicDetailsType,

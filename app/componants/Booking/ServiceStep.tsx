@@ -3,7 +3,6 @@ import MotionContainer from "../MotionContainer/MotionContainer";
 import MotionItem from "../MotionItem/MotionItem";
 import Image from "next/image";
 import CheckCircle from "@/app/Icons/CheckCircle";
-import React from "react";
 
 type Props = {
   formData: FormData;
@@ -28,7 +27,7 @@ const services: Service[] = [
   { id: "office-cleaning", title: "Office Cleaning Service", duration: "1h", image: "/services/office-cleaning.webp" },
 ];
 
-const categories: {id: Category, label: string}[] = [
+const categories: { id: Category, label: string }[] = [
   { id: "with-materials", label: "With materials" },
   { id: "without-materials", label: "Without materials" },
 ];
@@ -84,10 +83,10 @@ const ServiceStep = ({ formData, setService, nextStep, setCategory, markComplete
               >
                 <div className="relative w-full  md:w-32 h-40 md:h-32 shrink-0 overflow-hidden">
                   <Image
-                     src={service.image}
-                     alt={service.title}
-                     fill
-                     priority
+                    src={service.image}
+                    alt={service.title}
+                    fill
+                    priority
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                   />
                 </div>
@@ -97,7 +96,7 @@ const ServiceStep = ({ formData, setService, nextStep, setCategory, markComplete
                     <h3 className="text-lg font-semibold">{service.title}</h3>
                     <p className="text-sm text-gray-500">Duration: {service.duration}</p>
                     <p className="text-sm font-medium text-gray-700">Price: AED {price}.00</p>
-                  </div>  
+                  </div>
                   {isActive && <CheckCircle className="text-primary w-6 h-6 mt-1" />}
                 </div>
               </div>
@@ -111,7 +110,8 @@ const ServiceStep = ({ formData, setService, nextStep, setCategory, markComplete
         <div className="flex">
           <button
             disabled={!formData.service}
-            onClick={()=>{nextStep()
+            onClick={() => {
+              nextStep()
               markCompleted(1);
             }}
             className="ml-auto mt-8 bg-primary text-white px-6 py-3 rounded-lg font-semibold disabled:opacity-50 hover:bg-red-700 transition"
@@ -124,4 +124,4 @@ const ServiceStep = ({ formData, setService, nextStep, setCategory, markComplete
   );
 };
 
-export default React.memo(ServiceStep);
+export default ServiceStep;

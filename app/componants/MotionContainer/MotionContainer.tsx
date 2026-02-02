@@ -1,6 +1,6 @@
 'use client';
 import { ElementType, FC, ReactNode } from 'react';
-import { motion } from 'framer-motion';
+import { DOMMotionComponents, motion } from 'framer-motion';
 
 const containerVariants = {
     hidden: { opacity: 0, y: 50 },
@@ -11,10 +11,12 @@ const containerVariants = {
     },
 };
 
+type MotionTag = keyof DOMMotionComponents;
+
 interface MotionContainerProps {
     children: ReactNode;
     className?: string;
-    as?: ElementType
+    as?: MotionTag
 }
 
 const MotionContainer: FC<MotionContainerProps> = ({
@@ -22,7 +24,7 @@ const MotionContainer: FC<MotionContainerProps> = ({
     className = '',
     as: Component = 'div'
 }) => {
-    const MotionComponent = motion(Component);
+    const MotionComponent = motion[Component] ;
 
     return (
         <MotionComponent

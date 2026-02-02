@@ -127,7 +127,7 @@ const Reviews = () => {
                   </div>
                 </div>
 
-                <div aria-label={`Rating: ${review.rating} out of 5`} className="flex mb-3">{renderStars(review.rating)}</div>
+                <div className="flex mb-3">{renderStars(review.rating)}</div>
 
                 <div className="mb-3">
                   <span className="inline-block bg-blue-100 text-blue-800 text-lg px-4 py-1 rounded-full">

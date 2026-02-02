@@ -47,13 +47,13 @@ const Hero = () => {
 
         <MotionItem className="flex flex-col md:flex-row justify-center gap-4 mb-12">
           <Link href="/booking"
-            className="border text-2xl font-semibold px-6 py-3 rounded-full hover:bg-white hover:text-primary-dark transition"
+            className="border text-2xl font-semibold px-6 py-3 rounded-full md:hover:bg-white md:hover:text-primary-dark transition"
             aria-label="Book a professional cleaning service online">
             Book A Cleaning Now
           </Link>
           <a
             href={`tel:${companyData.phone}`}
-            className="border text-2xl font-semibold px-6 py-3 rounded-full hover:bg-white hover:text-primary-dark transition"
+            className="border text-2xl font-semibold px-6 py-3 rounded-full md:hover:bg-white md:hover:text-primary-dark transition"
             aria-label="Call professional cleaning service"
           >
             {companyData.phone}

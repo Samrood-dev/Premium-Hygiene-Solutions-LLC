@@ -1,4 +1,4 @@
-import { FormData } from "./BookingWIzard";
+import { Area, FormData } from "./BookingWIzard";
 import MyDatePicker from "../DatePicker/MyDatePicker";
 import MotionContainer from "../MotionContainer/MotionContainer";
 import MotionItem from "../MotionItem/MotionItem";
@@ -6,113 +6,176 @@ import ArrowRight from "@/app/Icons/ArrowRight";
 import ArrowLeft from "@/app/Icons/ArrowLeft";
 
 type Props = {
-    formData: FormData;
-    setFormData: React.Dispatch<React.SetStateAction<FormData>>;
-    nextStep: () => void;
-    prevStep: () => void;
-    markCompleted: (params: number) => void;
+  formData: FormData;
+  setFormData: React.Dispatch<React.SetStateAction<FormData>>;
+  nextStep: () => void;
+  prevStep: () => void;
+  markCompleted: (params: number) => void;
 };
 
-const timeSlots = [
-    "7:00 AM", "8:00 AM", "9:00 AM", "10:00 AM", "11:00 AM", "12:00 PM",
-    "1:00 PM", "2:00 PM", "3:00 PM", "4:00 PM", "5:00 PM", "6:00 PM",
-    "7:00 PM", "8:00 PM",
+const areas: Area[] = [
+  "Silicon oasis",
+  "Liwan",
+  "Dubai land",
+  "International city",
+  "Warsan",
 ];
 
-const DateTimeStep = ({ formData, setFormData, nextStep, prevStep, markCompleted }: Props) => {
-    const isValid = formData.date && formData.time;
+const timeSlots = [
+  "7:00 AM",
+  "8:00 AM",
+  "9:00 AM",
+  "10:00 AM",
+  "11:00 AM",
+  "12:00 PM",
+  "1:00 PM",
+  "2:00 PM",
+  "3:00 PM",
+  "4:00 PM",
+  "5:00 PM",
+  "6:00 PM",
+  "7:00 PM",
+  "8:00 PM",
+];
 
-    return (
-        <MotionContainer className="bg-white border border-gray-300 p-4 space-y-4">
-            {/* Date Picker */}
-            <MotionItem>
-                <div className="p-4 border border-gray-300 rounded-lg">
-                    <label  className="block mb-2 font-medium">Date</label>
-                    <MyDatePicker
-                        selected={formData.date}
-                        onSelect={(value) => {
-                            if (value) {
-                                setFormData((prev) => ({ ...prev, date: new Date(value) }));
-                            }
-                        }}
-                    />
-                </div>
-            </MotionItem>
+const DateTimeStep = ({
+  formData,
+  setFormData,
+  nextStep,
+  prevStep,
+  markCompleted,
+}: Props) => {
+  const isValid = formData.date && formData.time && formData.area !== "";
 
-            {/* Time Select */}
-            <MotionItem>
-                <div className="p-4 border border-gray-300 rounded-lg">
-                    <label htmlFor="time" className="block mb-2 font-medium">Service Time</label>
-                    <select
-                        value={formData.time}
-                        id="time"
-                        onChange={(e) =>
-                            setFormData((prev) => ({ ...prev, time: e.target.value }))
-                        }
-                        className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    >
-                        <option value="" disabled>Select a time</option>
-                        {timeSlots.map((slot) => (
-                            <option key={slot} value={slot}>{slot}</option>
-                        ))}
-                    </select>
-                </div>
-            </MotionItem>
+  return (
+    <MotionContainer className="bg-white border border-gray-300 p-4 space-y-4">
+      {/* Date Picker */}
+      <MotionItem>
+        <div className="p-4 border border-gray-300 rounded-lg">
+          <label className="block mb-2 font-medium">Date</label>
+          <MyDatePicker
+            selected={formData.date}
+            onSelect={(value) => {
+              if (value) {
+                setFormData((prev) => ({ ...prev, date: new Date(value) }));
+              }
+            }}
+          />
+        </div>
+      </MotionItem>
 
-            {/* Duration Slider */}
-            <MotionItem>
-                <div className="p-4 border border-gray-300 rounded-lg">
-                    <label htmlFor="duration" className="block mb-2 font-medium">
-                        Service Duration:
-                        <span className="ml-2 text-primary font-semibold">
-                            {formData.duration} Hour{formData.duration > 1 ? "s" : ""}
-                        </span>
-                    </label>
+      {/* Time Select */}
+      <MotionItem>
+        <div className="p-4 border border-gray-300 rounded-lg">
+          <label htmlFor="time" className="block mb-2 font-medium">
+            Service Time
+          </label>
+          <select
+            value={formData.time}
+            id="time"
+            onChange={(e) =>
+              setFormData((prev) => ({ ...prev, time: e.target.value }))
+            }
+            className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+            <option value="" disabled>
+              Select a time
+            </option>
+            {timeSlots.map((slot) => (
+              <option key={slot} value={slot}>
+                {slot}
+              </option>
+            ))}
+          </select>
+        </div>
+      </MotionItem>
 
-                    <input
-                        type="range"
-                        id="duration"
-                        min={1}
-                        max={8}
-                        step={1}
-                        value={formData.duration}
-                        onChange={(e) =>
-                            setFormData((prev) => ({ ...prev, duration: Number(e.target.value) }))
-                        }
-                        className="w-full accent-primary cursor-pointer"
-                    />
+      <MotionItem>
+        <div className="p-4 border border-gray-300 rounded-lg">
+          <label htmlFor="time" className="block mb-2 font-medium">
+            Service Area
+          </label>
+          <select
+            value={formData.area}
+            id="area"
+            onChange={(e) =>
+              setFormData((prev) => ({
+                ...prev,
+                area: e.target.value as Area,
+              }))
+            }
+            className="w-full border border-gray-300 rounded-lg px-3 py-2"
+          >
+            <option value="" disabled>
+              Select a area
+            </option>
 
-                    <div className="flex justify-between text-xs text-gray-500 mt-1">
-                        <span>1 hr</span>
-                        <span>8 hrs</span>
-                    </div>
-                </div>
-            </MotionItem>
+            {areas.map((area) => (
+              <option key={area} value={area}>
+                {area}
+              </option>
+            ))}
+          </select>
+        </div>
+      </MotionItem>
 
-            {/* Buttons */}
-            <MotionItem>
-                <div className="flex justify-end gap-4 mt-4">
-                    <button
-                        onClick={prevStep}
-                        className="px-6 py-3 cursor-pointer border rounded-lg inline-flex items-center gap-2 hover:bg-gray-100 transition"
-                    >
-                        <ArrowLeft className="w-4 h-4" /> Back
-                    </button>
+      {/* Duration Slider */}
+      <MotionItem>
+        <div className="p-4 border border-gray-300 rounded-lg">
+          <label htmlFor="duration" className="block mb-2 font-medium">
+            Service Duration:
+            <span className="ml-2 text-primary font-semibold">
+              {formData.duration} Hour{formData.duration > 1 ? "s" : ""}
+            </span>
+          </label>
 
-                    <button
-                        disabled={!isValid}
-                        onClick={() => {
-                            nextStep();
-                            markCompleted(2);
-                        }}
-                        className="px-6 py-3 cursor-pointer inline-flex gap-2 bg-primary items-center text-white rounded-lg disabled:opacity-50"
-                    >
-                        Continue <ArrowRight className="w-4 h-4" />
-                    </button>
-                </div>
-            </MotionItem>
-        </MotionContainer>
-    );
+          <input
+            type="range"
+            id="duration"
+            min={1}
+            max={8}
+            step={1}
+            value={formData.duration}
+            onChange={(e) =>
+              setFormData((prev) => ({
+                ...prev,
+                duration: Number(e.target.value),
+              }))
+            }
+            className="w-full accent-primary cursor-pointer"
+          />
+
+          <div className="flex justify-between text-xs text-gray-500 mt-1">
+            <span>1 hr</span>
+            <span>8 hrs</span>
+          </div>
+        </div>
+      </MotionItem>
+
+      {/* Buttons */}
+      <MotionItem>
+        <div className="flex justify-end gap-4 mt-4">
+          <button
+            onClick={prevStep}
+            className="px-6 py-3 cursor-pointer border rounded-lg inline-flex items-center gap-2 hover:bg-gray-100 transition"
+          >
+            <ArrowLeft className="w-4 h-4" /> Back
+          </button>
+
+          <button
+            disabled={!isValid}
+            onClick={() => {
+              nextStep();
+              markCompleted(2);
+            }}
+            className="px-6 py-3 cursor-pointer inline-flex gap-2 bg-primary items-center text-white rounded-lg disabled:opacity-50"
+          >
+            Continue <ArrowRight className="w-4 h-4" />
+          </button>
+        </div>
+      </MotionItem>
+    </MotionContainer>
+  );
 };
 
 export default DateTimeStep;

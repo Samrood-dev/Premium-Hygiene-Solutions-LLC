@@ -50,7 +50,8 @@ export async function POST(req: Request) {
                 <tr><td><b>Name</b></td><td>${data.name}</td></tr>
                 <tr><td><b>Phone</b></td><td>${data.phone}</td></tr>
                 <tr><td><b>Email</b></td><td>${data.email}</td></tr>
-                <tr><td><b>Location</b></td><td>${data.address}</td></tr>
+                <tr><td><b>area</b></td><td>${data.area}</td></tr>
+                <tr><td><b>Address</b></td><td>${data.address}</td></tr>
               </table>
       
               <h3 style="color:#0d6efd;margin-top:20px;">Booked for</h3>

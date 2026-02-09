@@ -1,5 +1,5 @@
 import { FormData, ServiceType } from "./BookingWIzard";
-import { Toaster, toast } from 'sonner';
+import { Toaster, toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { PRICE_PER_HOUR } from "@/utils/constants";
 import MotionContainer from "../MotionContainer/MotionContainer";
@@ -14,17 +14,16 @@ type Props = {
 
 const serviceNames: Record<ServiceType, string> = {
   "home-cleaning": "Home Cleaning Service",
-  "ironing": "Ironing Service",
+  ironing: "Ironing Service",
   "baby-sitting": "Baby Sitting",
   "deep-cleaning": "Deep Cleaning Service",
   "office-cleaning": "Office Cleaning Service",
 };
 
-
 const Summary = ({ formData, prevStep }: Props) => {
   const router = useRouter();
 
-  const [isSubmit, setIsSubmit] = useState(false)
+  const [isSubmit, setIsSubmit] = useState(false);
   const sendBooking = async () => {
     const res = await fetch("/api/send-mail", {
       method: "POST",
@@ -52,7 +51,9 @@ const Summary = ({ formData, prevStep }: Props) => {
         return "Booking sent successfully!";
       },
       error: "Failed to send booking",
-      finally: () => { setIsSubmit(false) }
+      finally: () => {
+        setIsSubmit(false);
+      },
     });
   };
 
@@ -61,7 +62,6 @@ const Summary = ({ formData, prevStep }: Props) => {
   return (
     <MotionContainer className="flex justify-center items-start">
       <div className="w-full border border-gray-300 p-4 max-w-3xl space-y-8">
-
         {/* Header */}
         <MotionItem>
           <h2 className="text-3xl font-bold text-center text-gray-900">
@@ -75,7 +75,9 @@ const Summary = ({ formData, prevStep }: Props) => {
         {/* Service Details */}
         <MotionItem>
           <div className="space-y-2">
-            <h3 className="text-xl font-semibold text-gray-900">Service Details</h3>
+            <h3 className="text-xl font-semibold text-gray-900">
+              Service Details
+            </h3>
             <p>
               <span className="font-semibold text-primary-dark">
                 {formData.service && serviceNames[formData.service]}
@@ -89,16 +91,31 @@ const Summary = ({ formData, prevStep }: Props) => {
                 })}
               </span>{" "}
               at{" "}
-              <span className="font-semibold text-primary-dark">{formData.time}</span>
+              <span className="font-semibold text-primary-dark">
+                {formData.time}
+              </span>
             </p>
             <p>
-              Duration: <span className="font-semibold">{formData.duration} hour{formData.duration > 1 ? "s" : ""}</span>
+              Duration:{" "}
+              <span className="font-semibold">
+                {formData.duration} hour{formData.duration > 1 ? "s" : ""}
+              </span>
             </p>
             <p>
-              Location: <span className="font-medium text-gray-900">{formData.address}</span>
+              Area:{" "}
+              <span className="font-medium text-gray-900">{formData.area}</span>
             </p>
             <p>
-              Total: <span className="font-bold text-primary-dark">{totalAmount} AED</span>
+              Address:{" "}
+              <span className="font-medium text-gray-900">
+                {formData.address}
+              </span>
+            </p>
+            <p>
+              Total:{" "}
+              <span className="font-bold text-primary-dark">
+                {totalAmount} AED
+              </span>
             </p>
           </div>
         </MotionItem>
@@ -106,10 +123,18 @@ const Summary = ({ formData, prevStep }: Props) => {
         {/* Customer Info */}
         <MotionItem>
           <div className="space-y-2">
-            <h3 className="text-xl font-semibold text-gray-900">Customer Information</h3>
-            <p><span className="font-medium">Name:</span> {formData.name}</p>
-            <p><span className="font-medium">Phone:</span> {formData.phone}</p>
-            <p><span className="font-medium">Email:</span> {formData.email}</p>
+            <h3 className="text-xl font-semibold text-gray-900">
+              Customer Information
+            </h3>
+            <p>
+              <span className="font-medium">Name:</span> {formData.name}
+            </p>
+            <p>
+              <span className="font-medium">Phone:</span> {formData.phone}
+            </p>
+            <p>
+              <span className="font-medium">Email:</span> {formData.email}
+            </p>
           </div>
         </MotionItem>
 
@@ -117,7 +142,9 @@ const Summary = ({ formData, prevStep }: Props) => {
         {formData.message && (
           <MotionItem>
             <div className="space-y-1">
-              <h3 className="text-xl font-semibold text-gray-900">Additional Message</h3>
+              <h3 className="text-xl font-semibold text-gray-900">
+                Additional Message
+              </h3>
               <p>{formData.message}</p>
             </div>
           </MotionItem>
@@ -143,7 +170,6 @@ const Summary = ({ formData, prevStep }: Props) => {
             </button>
           </div>
         </MotionItem>
-
       </div>
       <Toaster position="bottom-center" />
     </MotionContainer>

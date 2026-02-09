@@ -20,6 +20,11 @@ const serviceNames: Record<ServiceType, string> = {
   "office-cleaning": "Office Cleaning Service",
 };
 
+const CategoryNames = {
+  "with-materials": "With materials",
+  "without-materials": "Without materials",
+};
+
 const Summary = ({ formData, prevStep }: Props) => {
   const router = useRouter();
 
@@ -57,7 +62,14 @@ const Summary = ({ formData, prevStep }: Props) => {
     });
   };
 
-  const totalAmount = formData.duration * PRICE_PER_HOUR;
+  const pricePerHour =
+    formData.category === "without-materials"
+      ? PRICE_PER_HOUR
+      : PRICE_PER_HOUR + 5;
+
+  const subTotal = formData.duration * pricePerHour;
+  const vatAmount = subTotal * 0.05; // 5% VAT
+  const totalAmount = subTotal + vatAmount;
 
   return (
     <MotionContainer className="flex justify-center items-start">
@@ -93,6 +105,17 @@ const Summary = ({ formData, prevStep }: Props) => {
               at{" "}
               <span className="font-semibold text-primary-dark">
                 {formData.time}
+              </span>{" "}
+              in{" "}
+              <span className="font-semibold text-primary-dark">
+                {formData.area}
+              </span>
+            </p>
+
+            <p>
+              Category:{" "}
+              <span className="font-semibold">
+                {CategoryNames[formData.category]}
               </span>
             </p>
             <p>
@@ -102,19 +125,30 @@ const Summary = ({ formData, prevStep }: Props) => {
               </span>
             </p>
             <p>
-              Area:{" "}
-              <span className="font-medium text-gray-900">{formData.area}</span>
-            </p>
-            <p>
               Address:{" "}
               <span className="font-medium text-gray-900">
                 {formData.address}
               </span>
             </p>
+
             <p>
-              Total:{" "}
+              Subtotal:{" "}
+              <span className="font-semibold text-gray-900">
+                {subTotal.toFixed(2)} AED
+              </span>
+            </p>
+
+            <p>
+              VAT (5%):{" "}
+              <span className="font-semibold text-gray-900">
+                {vatAmount.toFixed(2)} AED
+              </span>
+            </p>
+
+            <p>
+              Total (Incl. VAT):{" "}
               <span className="font-bold text-primary-dark">
-                {totalAmount} AED
+                {totalAmount.toFixed(2)} AED
               </span>
             </p>
           </div>

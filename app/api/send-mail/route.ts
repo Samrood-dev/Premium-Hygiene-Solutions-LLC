@@ -6,10 +6,20 @@ export async function POST(req: Request) {
   try {
     const data = await req.json();
 
-    if (!data.name || !data.phone || !data.email || !data.date || !data.time || !data.category) {
-      return NextResponse.json({ success: false, message: "Missing fields" }, { status: 400 });
+    if (
+      !data.name ||
+      !data.phone ||
+      !data.email ||
+      !data.date ||
+      !data.time ||
+      !data.category
+    ) {
+      return NextResponse.json(
+        { success: false, message: "Missing fields" },
+        { status: 400 }
+      );
     }
-    
+
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
@@ -18,8 +28,16 @@ export async function POST(req: Request) {
       },
     });
 
-    const pricePerHour = data.category === 'without-materials' ? PRICE_PER_HOUR : PRICE_PER_HOUR + 5
-    const amount = data.duration * pricePerHour
+    const pricePerHour =
+      data.category === "without-materials"
+        ? PRICE_PER_HOUR
+        : PRICE_PER_HOUR + 5;
+
+    const subTotal = data.duration * pricePerHour;
+    const vatAmount = subTotal * 0.05; // 5% VAT
+    const totalAmount = subTotal + vatAmount;
+
+    // const amount = data.duration * pricePerHour
     const formattedDate = new Date(data.date).toLocaleDateString("en-IN", {
       day: "2-digit",
       month: "long",
@@ -57,8 +75,17 @@ export async function POST(req: Request) {
               <h3 style="color:#0d6efd;margin-top:20px;">Booked for</h3>
               <table style="width:100%;font-size:14px;">
                 <tr><td><b>Service</b></td><td>${data.service}</td></tr>
-                <tr><td><b>Amount</b></td><td>AED ${amount}</td></tr>
-               <tr><td><b>Duration</b></td><td>${data.duration} ${durationLabel}</td></tr>
+                <tr><td><b>Category</b></td><td>${data.category}</td></tr>
+                <tr><td><b>Subtotal</b></td><td>AED ${subTotal}</td></tr>
+                <tr><td><b>VAT (5%)</b></td><td>AED ${vatAmount.toFixed(
+                  2
+                )}</td></tr>
+                <tr><td><b>Total (Incl. VAT)</b></td><td><b>AED ${totalAmount.toFixed(
+                  2
+                )}</b></td></tr>
+               <tr><td><b>Duration</b></td><td>${
+                 data.duration
+               } ${durationLabel}</td></tr>
               </table>
       
               <h3 style="color:#0d6efd;margin-top:20px;">Appointment Details:</h3>
@@ -91,33 +118,6 @@ export async function POST(req: Request) {
         </div>
         `,
     });
-
-
-    // await transporter.sendMail({
-    //   from: `"Premium Hygiene Solutions LLC" <${process.env.GMAIL_USER}>`,
-    //   to: data.email,
-    //   subject: "🧹 Your Appointment Request is Received",
-    //   html: `
-    //     <p>Hi ${data.name},</p>
-    //     <p>Thank you for booking with Premium Hygiene Solutions LLC.</p>
-    //     <p>Your appointment request has been received and is pending confirmation.</p>
-    
-    //     <h3>Booking Summary</h3>
-    //     <p><b>Service:</b> ${data.service}</p>
-    //     <p><b>Date:</b> ${formattedDate}</p>
-    //     <p><b>Time:</b> ${data.time}</p>
-    //     <p><b>Duration:</b> ${data.duration} ${durationLabel}</p>
-    //     <p><b>Amount:</b> AED ${amount}</p>
-    
-    //     <p>We will contact you shortly to confirm.</p>
-    
-    //     <p>
-    //       Thank you,<br/>
-    //       <b>Premium Hygiene Solutions LLC</b>
-    //     </p>
-    //   `,
-    // });
-    
 
     return NextResponse.json({ success: true }, { status: 200 });
   } catch (error) {

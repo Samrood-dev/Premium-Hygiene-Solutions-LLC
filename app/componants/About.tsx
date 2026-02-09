@@ -25,7 +25,6 @@ const About = () => {
   return (
     <section id="about" className="py-10 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
         {/* Heading */}
         <MotionContainer className="text-center mb-12">
           <MotionItem>
@@ -36,26 +35,23 @@ const About = () => {
         </MotionContainer>
 
         <MotionContainer className="grid md:grid-cols-2 gap-12 items-center">
-
           {/* Left Content */}
           <MotionItem>
-              {aboutData.map((item, index) => (
-                <div key={index}>
-                  <MotionItem>
-                    <h3
-                      className={`text-3xl font-semibold text-gray-900 mb-4`}
-                    >
-                      {item.title}
-                    </h3>
-                  </MotionItem>
+            {aboutData.map((item, index) => (
+              <div key={index}>
+                <MotionItem>
+                  <h3 className={`text-3xl font-semibold text-gray-900 mb-4`}>
+                    {item.title}
+                  </h3>
+                </MotionItem>
 
-                  <MotionItem>
-                    <p className="text-gray-600 mb-6 text-lg">
-                      {item.description}
-                    </p>
-                  </MotionItem>
-                </div>
-              ))}
+                <MotionItem>
+                  <p className="text-gray-600 mb-6 text-lg">
+                    {item.description}
+                  </p>
+                </MotionItem>
+              </div>
+            ))}
           </MotionItem>
 
           {/* Right Content */}
@@ -75,15 +71,18 @@ const About = () => {
                   "Flexible scheduling and competitive pricing",
                   "Fully insured and bonded",
                 ].map((item, index) => (
-                  <MotionItem as="li"  key={index} className="flex items-start list-none">
-                      <CheckCircle className="h-6 w-6 text-primary mr-3 shrink-0 mt-0.5" />
-                      <span className="text-gray-700 text-xl">{item}</span>
+                  <MotionItem
+                    as="li"
+                    key={index}
+                    className="flex items-start list-none"
+                  >
+                    <CheckCircle className="h-6 w-6 text-primary mr-3 shrink-0 mt-0.5" />
+                    <span className="text-gray-700 text-xl">{item}</span>
                   </MotionItem>
                 ))}
               </MotionContainer>
             </div>
           </MotionItem>
-
         </MotionContainer>
       </div>
     </section>

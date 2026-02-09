@@ -72,8 +72,9 @@ const Reviews = () => {
     [...Array(5)].map((_, index) => (
       <Star
         key={index}
-        className={`h-5 w-5 ${index < rating ? "text-yellow-400 fill-yellow-400" : "text-gray-300"
-          }`}
+        className={`h-5 w-5 ${
+          index < rating ? "text-yellow-400 fill-yellow-400" : "text-gray-300"
+        }`}
       />
     ));
 
@@ -82,7 +83,6 @@ const Reviews = () => {
       <TriangleArrow />
       <div className="py-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
           {/* Heading */}
           <MotionContainer className="text-center mb-12">
             <MotionItem>
@@ -114,7 +114,10 @@ const Reviews = () => {
           {/* Reviews */}
           <MotionContainer className="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory scroll-smooth">
             {reviews.map((review, index) => (
-              <MotionItem key={index} className="min-w-80 max-w-[320px] bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-xl transition snap-center">
+              <MotionItem
+                key={index}
+                className="min-w-80 max-w-[320px] bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-xl transition snap-center"
+              >
                 <div className="flex items-center mb-4">
                   <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-semibold text-lg mr-4">
                     {review.avatar}

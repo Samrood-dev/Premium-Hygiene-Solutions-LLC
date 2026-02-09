@@ -8,18 +8,23 @@ const Hero = () => {
   return (
     <section
       className="bg-primary md:bg-[linear-gradient(to_bottom,#dc2626_60%,#ffffff_50%)] text-white pt-32 pb-10"
-      aria-label="Hero section with booking and contact information" >
+      aria-label="Hero section with booking and contact information"
+    >
       <MotionContainer className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <MotionItem>
-          <h1 className="text-4xl md:text-5xl font-extrabold mb-4">
-            Professional Cleaning Services
-          </h1>
+        <MotionItem
+          as="h1"
+          className="text-4xl md:text-5xl font-extrabold mb-4"
+        >
+          Professional Cleaning Services
         </MotionItem>
 
-        <MotionItem>
-          <p className="text-lg font-semibold md:text-lg mb-3 max-w-2xl mx-auto">
-          Serving homes and offices across Dubai, including Liwan Mazaya, International City, Warsan, and Dubai Land. Our professional cleaning team ensures every corner shines.
-          </p>
+        <MotionItem
+          as="h1"
+          className="text-lg font-semibold md:text-lg mb-3 max-w-2xl mx-auto"
+        >
+          Serving homes and offices across Dubai, including Dubai Silicon Oasis,
+          Liwan Mazaya, Dubai land residents complex, International City,
+          Warsan. Our professional cleaning team ensures every corner shines.
         </MotionItem>
 
         {/* <MotionItem className=" relative inline-flex items-center bg-white px-6 py-3 rounded-lg shadow-2xl mb-4">
@@ -36,9 +41,7 @@ const Hero = () => {
         <MotionItem className="inline-flex relative w-30 h-30 mb-4">
           <div className="absolute inset-0 rounded-full bg-white animate-ping opacity-30"></div>
           <div className="relative flex flex-col items-center justify-center w-full h-full rounded-full bg-white shadow-xl">
-            <span className="text-primary text-3xl font-extrabold">
-              30 AED
-            </span>
+            <span className="text-primary text-3xl font-extrabold">30 AED</span>
             <span className="text-primary text-sm font-semibold tracking-widest">
               / HOUR
             </span>
@@ -46,9 +49,11 @@ const Hero = () => {
         </MotionItem>
 
         <MotionItem className="flex flex-col md:flex-row justify-center gap-4 mb-12">
-          <Link href="/booking"
+          <Link
+            href="/booking"
             className="border text-2xl font-semibold px-6 py-3 rounded-full md:hover:bg-white md:hover:text-primary-dark transition"
-            aria-label="Book a professional cleaning service online">
+            aria-label="Book a professional cleaning service online"
+          >
             Book A Cleaning Now
           </Link>
           <a
@@ -71,9 +76,7 @@ const Hero = () => {
           />
         </div>
       </MotionContainer>
-
     </section>
-
   );
 };
 

@@ -58,14 +58,14 @@ export default function RootLayout({
       <head>
         <Script
           async
-          src="https://www.googletagmanager.com/gtag/js?id=G-CTHRKP2BK5"
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
         ></Script>
         <Script>
           {`window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-CTHRKP2BK5')`}
+  gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}')`}
           ;
         </Script>
       </head>
